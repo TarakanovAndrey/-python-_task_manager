@@ -159,6 +159,17 @@ files = [
 django = ">=3.2"
 
 [[package]]
+name = "django-forms-bootstrap"
+version = "3.1.0"
+description = "a simple form filter for using Django forms with Bootstrap"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-forms-bootstrap-3.1.0.tar.gz", hash = "sha256:ffc6d2b9fba03e2366884e82f613daf1284702e9346746e0e9de299db8138d6f"},
+    {file = "django_forms_bootstrap-3.1.0-py2.py3-none-any.whl", hash = "sha256:50d69baf6c6f262f6ae3651096b52c31552cb75d37493f0c917ce2c16d13f0d9"},
+]
+
+[[package]]
 name = "django-i18n"
 version = "1.0.4"
 description = "Lightweight i18n for Django framework"
@@ -369,13 +380,13 @@ files = [
 
 [[package]]
 name = "whitenoise"
-version = "6.5.0"
+version = "6.6.0"
 description = "Radically simplified static file serving for WSGI applications"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "whitenoise-6.5.0-py3-none-any.whl", hash = "sha256:16468e9ad2189f09f4a8c635a9031cc9bb2cdbc8e5e53365407acf99f7ade9ec"},
-    {file = "whitenoise-6.5.0.tar.gz", hash = "sha256:15fe60546ac975b58e357ccaeb165a4ca2d0ab697e48450b8f0307ca368195a8"},
+    {file = "whitenoise-6.6.0-py3-none-any.whl", hash = "sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146"},
+    {file = "whitenoise-6.6.0.tar.gz", hash = "sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251"},
 ]
 
 [package.dependencies]
@@ -387,4 +398,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "6449754dc81533d5f44a9ca63503fd0a751048b958632c15afe2e48a87d0e5ee"
+content-hash = "ad0c3ce8e26e1392ed30457978275c39207e4c3fb5d1d30487debc62aa8ee5c0"

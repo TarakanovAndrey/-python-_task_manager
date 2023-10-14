@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 14:47+0300\n"
+"POT-Creation-Date: 2023-10-13 20:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,7 @@ msgid "Task manager"
 msgstr ""
 
 #: manager/templates/manager/base.html:26
+#: users/templates/users/users_list.html:7
 msgid "Users"
 msgstr ""
 
@@ -50,12 +51,70 @@ msgstr ""
 msgid "To learn more"
 msgstr ""
 
-#: task_manager/settings.py:128
+#: task_manager/settings.py:141
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:129
+#: task_manager/settings.py:142
 msgid "Russian"
+msgstr ""
+
+#: users/forms.py:13
+msgid "First name"
+msgstr ""
+
+#: users/forms.py:14
+msgid "Last name"
+msgstr ""
+
+#: users/forms.py:15 users/templates/users/users_list.html:12
+msgid "Nickname"
+msgstr ""
+
+#: users/forms.py:16
+msgid "Password"
+msgstr ""
+
+#: users/forms.py:17
+msgid "Password confirmation"
+msgstr ""
+
+#: users/models.py:11
+msgid ""
+"Required field. No more than 150 characters. Only letters, numbers and "
+"symbols @/./+/-/_."
+msgstr ""
+
+#: users/models.py:15
+msgid "Your password must contain at least 3 characters."
+msgstr ""
+
+#: users/models.py:19
+msgid "To confirm, please enter the password again."
+msgstr ""
+
+#: users/templates/users/create_user.html:10
+msgid "Registration"
+msgstr ""
+
+#: users/templates/users/users_list.html:11
+msgid "ID"
+msgstr ""
+
+#: users/templates/users/users_list.html:13
+msgid "Full name"
+msgstr ""
+
+#: users/templates/users/users_list.html:14
+msgid "Created at"
+msgstr ""
+
+#: users/templates/users/users_list.html:27
+msgid "Update"
+msgstr ""
+
+#: users/templates/users/users_list.html:29
+msgid "Delete"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"

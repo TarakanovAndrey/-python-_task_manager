@@ -23,19 +23,19 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{% translate 'Users' %}</a>
+                    <a class="nav-link" href="{% url 'users_list' %}">{% translate 'Users' %}</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{% translate 'Login' %}</a>
+                    <a class="nav-link" href="{% url 'login' %}">{% translate 'Login' %}</a>
                 </li>
             </ul>
 
           <ul class="navbar-nav mr-auto">
              <li class="nav-item">
-                 <a class="nav-link" href="#">{% translate 'Registation' %}</a>
+                 <a class="nav-link" href="{% url 'create_user' %}">{% translate 'Registation' %}</a>
              </li>
           </ul>
 

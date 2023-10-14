@@ -1,11 +1,25 @@
 from django.shortcuts import render
 from django.views import View
-from django.utils.translation import gettext
+from django.middleware.csrf import  get_token
+
 
 
 class IndexView(View):
 
     def get(selfr, request):
-        menu = ['Users', 'Login', 'Registration']
-        project_name = 'Task manager'
-        return render(request, 'manager/index.html', {'menu': menu, 'project_name': project_name})
+        return render(request, 'manager/index.html')
+
+
+
+class LoginView(View):
+
+    def get(self, request):
+        csrf_token = get_token(request)
+        return render(request, 'manager/login.html', {'csrf_token': csrf_token})
+
+
+    def post(self, request):
+        pass
+
+
+

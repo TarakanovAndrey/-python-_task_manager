@@ -25,8 +25,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
 ] + i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
     path('', include('manager.urls')),
+    path('users/', include('users.urls')),
     prefix_default_language=False
 )
