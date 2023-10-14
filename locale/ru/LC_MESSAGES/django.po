@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-13 20:22+0300\n"
+"POT-Creation-Date: 2023-10-14 18:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,27 +61,27 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: users/forms.py:13
-msgid "First name"
-msgstr "Имя"
-
-#: users/forms.py:14
-msgid "Last name"
-msgstr "Фамилия"
-
-#: users/forms.py:15 users/templates/users/users_list.html:12
-msgid "Nickname"
+#: users/forms.py:8 users/forms.py:24
+msgid "Username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:16
+#: users/forms.py:9 users/forms.py:25
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:17
+#: users/forms.py:22
+msgid "First name"
+msgstr "Имя"
+
+#: users/forms.py:23
+msgid "Last name"
+msgstr "Фамилия"
+
+#: users/forms.py:26
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/models.py:11
+#: users/models.py:12
 msgid ""
 "Required field. No more than 150 characters. Only letters, numbers and "
 "symbols @/./+/-/_."
@@ -89,13 +89,17 @@ msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
 
-#: users/models.py:15
+#: users/models.py:19
 msgid "Your password must contain at least 3 characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: users/models.py:19
+#: users/models.py:23
 msgid "To confirm, please enter the password again."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
+#: users/templates/registration/login.html:7
+msgid "Entrance"
+msgstr "Вход"
 
 #: users/templates/users/create_user.html:10
 msgid "Registration"
@@ -105,8 +109,11 @@ msgstr "Регистрация"
 msgid "ID"
 msgstr ""
 
-#: users/templates/users/users_list.html:13
+#: users/templates/users/users_list.html:12
+msgid "Nickname"
+msgstr "Имя пользователя"
 
+#: users/templates/users/users_list.html:13
 msgid "Full name"
 msgstr "Полное имя"
 

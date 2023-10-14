@@ -8,7 +8,12 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     model = CustomUser
-    list_display = ['first_name', 'last_name', 'password', 'nickname']
+    list_display = [
+        'first_name',
+        'last_name',
+        'password',
+        'username'
+                    ]
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

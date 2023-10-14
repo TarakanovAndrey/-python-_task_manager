@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-13 20:22+0300\n"
+"POT-Creation-Date: 2023-10-14 18:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,38 +59,42 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: users/forms.py:13
-msgid "First name"
+#: users/forms.py:8 users/forms.py:24
+msgid "Username"
 msgstr ""
 
-#: users/forms.py:14
-msgid "Last name"
-msgstr ""
-
-#: users/forms.py:15 users/templates/users/users_list.html:12
-msgid "Nickname"
-msgstr ""
-
-#: users/forms.py:16
+#: users/forms.py:9 users/forms.py:25
 msgid "Password"
 msgstr ""
 
-#: users/forms.py:17
+#: users/forms.py:22
+msgid "First name"
+msgstr ""
+
+#: users/forms.py:23
+msgid "Last name"
+msgstr ""
+
+#: users/forms.py:26
 msgid "Password confirmation"
 msgstr ""
 
-#: users/models.py:11
+#: users/models.py:12
 msgid ""
 "Required field. No more than 150 characters. Only letters, numbers and "
 "symbols @/./+/-/_."
 msgstr ""
 
-#: users/models.py:15
+#: users/models.py:19
 msgid "Your password must contain at least 3 characters."
 msgstr ""
 
-#: users/models.py:19
+#: users/models.py:23
 msgid "To confirm, please enter the password again."
+msgstr ""
+
+#: users/templates/registration/login.html:7
+msgid "Entrance"
 msgstr ""
 
 #: users/templates/users/create_user.html:10
@@ -99,6 +103,10 @@ msgstr ""
 
 #: users/templates/users/users_list.html:11
 msgid "ID"
+msgstr ""
+
+#: users/templates/users/users_list.html:12
+msgid "Nickname"
 msgstr ""
 
 #: users/templates/users/users_list.html:13
