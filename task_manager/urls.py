@@ -26,8 +26,7 @@ urlpatterns = [
 ] + i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
     path('', IndexView.as_view(), name='home'),
-    path('', include(
-        'users.urls',
-    )),
+    path('', include('users.urls')),
+    path('', include('statuses.urls')),
     prefix_default_language=False
 )

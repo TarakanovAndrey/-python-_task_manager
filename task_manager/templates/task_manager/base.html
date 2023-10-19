@@ -31,7 +31,7 @@
           {% if request.user.is_authenticated %}
               <ul class="navbar-nav mr-auto">
                  <li class="nav-item">
-                     <a class="nav-link" href="#">{% translate 'Statuses' %}</a>
+                     <a class="nav-link" href="{% url 'statuses_list' %}">{% translate 'Statuses' %}</a>
                  </li>
               </ul>
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-19 10:40+0300\n"
+"POT-Creation-Date: 2023-10-19 15:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:142
+#: statuses/forms.py:6 statuses/forms.py:10
+#: statuses/templates/statuses/statuses_list.html:15
+msgid "Name"
+msgstr ""
+
+#: statuses/templates/statuses/status_create.html:10
+#: statuses/templates/statuses/statuses_list.html:10
+msgid "Create status"
+msgstr ""
+
+#: statuses/templates/statuses/status_create.html:19
+msgid "Create"
+msgstr ""
+
+#: statuses/templates/statuses/statuses_list.html:9
+#: task_manager/templates/task_manager/base.html:34
+msgid "Statuses"
+msgstr ""
+
+#: statuses/templates/statuses/statuses_list.html:14
+#: users/templates/users/users_list.html:13
+msgid "ID"
+msgstr ""
+
+#: statuses/templates/statuses/statuses_list.html:16
+#: users/templates/users/users_list.html:16
+msgid "Created at"
+msgstr ""
+
+#: statuses/templates/statuses/statuses_list.html:30
+#: statuses/templates/statuses/statuses_list.html:34
+#: users/templates/users/users_list.html:31
+#: users/templates/users/users_list.html:35
+msgid "Update"
+msgstr ""
+
+#: statuses/templates/statuses/statuses_list.html:32
+#: statuses/templates/statuses/statuses_list.html:36
+#: users/templates/users/users_list.html:33
+#: users/templates/users/users_list.html:37
+msgid "Delete"
+msgstr ""
+
+#: task_manager/settings.py:148
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:143
+#: task_manager/settings.py:149
 msgid "Russian"
 msgstr ""
 
@@ -37,10 +80,6 @@ msgstr ""
 #: task_manager/templates/task_manager/base.html:27
 #: users/templates/users/users_list.html:9
 msgid "Users"
-msgstr ""
-
-#: task_manager/templates/task_manager/base.html:34
-msgid "Statuses"
 msgstr ""
 
 #: task_manager/templates/task_manager/base.html:40
@@ -117,7 +156,7 @@ msgstr ""
 msgid "Are you sure you want to delete"
 msgstr ""
 
-#: users/templates/auth/user_confirm_delete.html:14
+#: users/templates/auth/user_confirm_delete.html:13
 msgid "Yes, delete"
 msgstr ""
 
@@ -133,12 +172,8 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: users/templates/users/login.html:7
+#: users/templates/users/login.html:9
 msgid "Entrance"
-msgstr ""
-
-#: users/templates/users/users_list.html:13
-msgid "ID"
 msgstr ""
 
 #: users/templates/users/users_list.html:14
@@ -147,20 +182,6 @@ msgstr ""
 
 #: users/templates/users/users_list.html:15
 msgid "Full name"
-msgstr ""
-
-#: users/templates/users/users_list.html:16
-msgid "Created at"
-msgstr ""
-
-#: users/templates/users/users_list.html:31
-#: users/templates/users/users_list.html:35
-msgid "Update"
-msgstr ""
-
-#: users/templates/users/users_list.html:33
-#: users/templates/users/users_list.html:37
-msgid "Delete"
 msgstr ""
 
 #: users/views.py:30

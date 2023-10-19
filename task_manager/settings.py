@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'task_manager',
     'users.apps.UsersConfig',
+    'statuses.apps.StatusesConfig'
 ]
 
 
@@ -66,7 +67,12 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'task_manager/templates', 'users/templates')],
+        'DIRS': [os.path.join(
+            BASE_DIR,
+            'task_manager/templates',
+            'users/templates',
+            'statuses/templates'
+        )],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

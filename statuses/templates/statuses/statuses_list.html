@@ -1,0 +1,46 @@
+{% extends 'task_manager/base.html' %}
+{% load i18n %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_javascript %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4">{% translate 'Statuses' %}</h1>
+    <a class="nav-link" href="{% url 'status_create' %}">{% translate 'Create status' %}</a>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>{% translate 'ID' %}</th>
+          <th>{% translate 'Name' %}</th>
+          <th>{% translate 'Created at' %}</th>
+          <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% if statuses_list %}
+        {% for status in statuses_list %}
+            <tr>
+                <td>{{ status.id }}</td>
+                <td>{{ status.status_name }}</td>
+                <td>{{ status.created_at }}</td>
+                <td>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'status_update' status.id %}">{% translate 'Update' %}</a>
+                    <br>
+                    <a href="{% url 'status_delete' status.id %}">{% translate 'Delete' %}</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">{% translate 'Update' %}</a>
+                    <br>
+                    <a href="{% url 'login' %}">{% translate 'Delete' %}</a>
+                    {% endif %}
+
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}
