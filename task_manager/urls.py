@@ -17,17 +17,17 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path, include
-from users.views import LoginView, LogoutView
+from . views import IndexView
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('django.contrib.auth.urls')),
 ] + i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
-    path('', include('manager.urls')),
-    path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    path('users/', include('users.urls')),
+    path('', IndexView.as_view(), name='home'),
+    path('', include(
+        'users.urls',
+    )),
     prefix_default_language=False
 )

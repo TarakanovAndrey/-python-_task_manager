@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-14 18:19+0300\n"
+"POT-Creation-Date: 2023-10-19 10:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,111 +18,171 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: manager/templates/manager/base.html:12
-msgid "Task manager Hexlet"
-msgstr ""
-
-#: manager/templates/manager/base.html:18
-msgid "Task manager"
-msgstr ""
-
-#: manager/templates/manager/base.html:26
-#: users/templates/users/users_list.html:7
-msgid "Users"
-msgstr ""
-
-#: manager/templates/manager/base.html:32
-msgid "Login"
-msgstr ""
-
-#: manager/templates/manager/base.html:38
-msgid "Registation"
-msgstr ""
-
-#: manager/templates/manager/index.html:11
-msgid "Greetings from Hexlet!"
-msgstr ""
-
-#: manager/templates/manager/index.html:12
-msgid "Practical programming courses"
-msgstr ""
-
-#: manager/templates/manager/index.html:14
-msgid "To learn more"
-msgstr ""
-
-#: task_manager/settings.py:141
+#: task_manager/settings.py:142
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:142
+#: task_manager/settings.py:143
 msgid "Russian"
 msgstr ""
 
-#: users/forms.py:8 users/forms.py:24
+#: task_manager/templates/task_manager/base.html:13
+msgid "Task manager Hexlet"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:19
+msgid "Task manager"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:27
+#: users/templates/users/users_list.html:9
+msgid "Users"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:34
+msgid "Statuses"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:40
+msgid "Tags"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:46
+msgid "Tasks"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:52
+msgid "Logout"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:59
+msgid "Login"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:65
+msgid "Registation"
+msgstr ""
+
+#: task_manager/templates/task_manager/index.html:22
+msgid "Greetings from Hexlet!"
+msgstr ""
+
+#: task_manager/templates/task_manager/index.html:23
+msgid "Practical programming courses"
+msgstr ""
+
+#: task_manager/templates/task_manager/index.html:25
+msgid "To learn more"
+msgstr ""
+
+#: users/forms.py:11 users/forms.py:15 users/forms.py:34 users/forms.py:38
 msgid "Username"
 msgstr ""
 
-#: users/forms.py:9 users/forms.py:25
+#: users/forms.py:20 users/forms.py:24 users/forms.py:44 users/forms.py:48
 msgid "Password"
 msgstr ""
 
-#: users/forms.py:22
-msgid "First name"
-msgstr ""
-
-#: users/forms.py:23
-msgid "Last name"
-msgstr ""
-
-#: users/forms.py:26
-msgid "Password confirmation"
-msgstr ""
-
-#: users/models.py:12
+#: users/forms.py:32
 msgid ""
 "Required field. No more than 150 characters. Only letters, numbers and "
 "symbols @/./+/-/_."
 msgstr ""
 
-#: users/models.py:19
+#: users/forms.py:43
 msgid "Your password must contain at least 3 characters."
 msgstr ""
 
-#: users/models.py:23
+#: users/forms.py:53
 msgid "To confirm, please enter the password again."
 msgstr ""
 
-#: users/templates/registration/login.html:7
+#: users/forms.py:54 users/forms.py:58
+msgid "Password confirmation"
+msgstr ""
+
+#: users/forms.py:67 users/forms.py:75
+msgid "First name"
+msgstr ""
+
+#: users/forms.py:68 users/forms.py:80
+msgid "Last name"
+msgstr ""
+
+#: users/templates/auth/user_confirm_delete.html:9
+msgid "Deleting a user"
+msgstr ""
+
+#: users/templates/auth/user_confirm_delete.html:10
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: users/templates/auth/user_confirm_delete.html:14
+msgid "Yes, delete"
+msgstr ""
+
+#: users/templates/auth/user_form.html:10
+msgid "Changing the user"
+msgstr ""
+
+#: users/templates/auth/user_form.html:37
+msgid "Change"
+msgstr ""
+
+#: users/templates/users/create_user.html:38
+msgid "Register"
+msgstr ""
+
+#: users/templates/users/login.html:7
 msgid "Entrance"
 msgstr ""
 
-#: users/templates/users/create_user.html:10
-msgid "Registration"
-msgstr ""
-
-#: users/templates/users/users_list.html:11
+#: users/templates/users/users_list.html:13
 msgid "ID"
 msgstr ""
 
-#: users/templates/users/users_list.html:12
+#: users/templates/users/users_list.html:14
 msgid "Nickname"
 msgstr ""
 
-#: users/templates/users/users_list.html:13
+#: users/templates/users/users_list.html:15
 msgid "Full name"
 msgstr ""
 
-#: users/templates/users/users_list.html:14
+#: users/templates/users/users_list.html:16
 msgid "Created at"
 msgstr ""
 
-#: users/templates/users/users_list.html:27
+#: users/templates/users/users_list.html:31
+#: users/templates/users/users_list.html:35
 msgid "Update"
 msgstr ""
 
-#: users/templates/users/users_list.html:29
+#: users/templates/users/users_list.html:33
+#: users/templates/users/users_list.html:37
 msgid "Delete"
+msgstr ""
+
+#: users/views.py:30
+msgid "You are logged in"
+msgstr ""
+
+#: users/views.py:34
+msgid ""
+"Please enter the correct username and password. Both fields can be case "
+"sensitive."
+msgstr ""
+
+#: users/views.py:41
+msgid "You are logged out"
+msgstr ""
+
+#: users/views.py:55
+msgid "Registration"
+msgstr ""
+
+#: users/views.py:65
+msgid "The user has been successfully registered"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"

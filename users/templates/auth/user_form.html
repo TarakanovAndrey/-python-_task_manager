@@ -4,11 +4,10 @@
 {% load django_bootstrap5 %}
 {% bootstrap_javascript %}
 
-
 {% block content %}
 
 <div class="container wrapper flex-grow-1">
-  <h1 class="my-4">{{ title }}</h1>
+  <h1 class="my-4">{% translate 'Changing the user' %}</h1>
 <form method="post">
   {% csrf_token %}
 
@@ -35,7 +34,7 @@
     </div>
   {% endfor %}
 
-  <input class="btn btn-primary" type="submit" value="{% translate 'Register' %}">
+  <input class="btn btn-primary" type="submit" value="{% translate 'Change' %}">
 </form>
 </div>
 

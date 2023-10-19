@@ -5,4 +5,4 @@ from django.views import View
 class IndexView(View):
 
     def get(selfr, request):
-        return render(request, 'manager/index.html')
+        return render(request, 'task_manager/index.html')

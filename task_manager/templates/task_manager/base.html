@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 {% load django_bootstrap5 %}
+{% bootstrap_javascript %}
 
 {% bootstrap_css %}
 <head>
@@ -27,6 +28,32 @@
                 </li>
             </ul>
 
+          {% if request.user.is_authenticated %}
+              <ul class="navbar-nav mr-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">{% translate 'Statuses' %}</a>
+                 </li>
+              </ul>
+
+              <ul class="navbar-nav mr-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">{% translate 'Tags' %}</a>
+                 </li>
+              </ul>
+
+              <ul class="navbar-nav mr-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">{% translate 'Tasks' %}</a>
+                 </li>
+              </ul>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">{% translate 'Logout' %}</a>
+                </li>
+            </ul>
+          {% else %}
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">{% translate 'Login' %}</a>
@@ -35,9 +62,10 @@
 
           <ul class="navbar-nav mr-auto">
              <li class="nav-item">
-                 <a class="nav-link" href="{% url 'create_user' %}">{% translate 'Registation' %}</a>
+                 <a class="nav-link" href="{% url 'create' %}">{% translate 'Registation' %}</a>
              </li>
           </ul>
+          {% endif %}
 
       </div>
     </nav>
