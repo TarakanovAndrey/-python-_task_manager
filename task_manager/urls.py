@@ -28,5 +28,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='home'),
     path('', include('users.urls')),
     path('', include('statuses.urls')),
+    path('', include('labels.urls')),
+    path('', include('tasks.urls')),
     prefix_default_language=False
 )

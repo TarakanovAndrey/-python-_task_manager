@@ -1,6 +1,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/TarakanovAndrey/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/TarakanovAndrey/python-project-52/actions)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/5588b9ac91d5571a8b5b/maintainability)](https://codeclimate.com/github/TarakanovAndrey/python-project-52/maintainability)  
+
 # Менеджер задач  
 С функционалом приложения можно ознакомиться по ссылке:  
 https://task-manager-j2qw.onrender.com  

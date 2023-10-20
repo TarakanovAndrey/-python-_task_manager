@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'task_manager',
     'users.apps.UsersConfig',
-    'statuses.apps.StatusesConfig'
+    'statuses.apps.StatusesConfig',
+    'labels.apps.LabelsConfig',
+    'tasks.apps.TasksConfig',
 ]
 
 
@@ -71,7 +73,9 @@ TEMPLATES = [
             BASE_DIR,
             'task_manager/templates',
             'users/templates',
-            'statuses/templates'
+            'statuses/templates',
+            'labels/templates',
+            'tasks/templates'
         )],
         'APP_DIRS': True,
         'OPTIONS': {

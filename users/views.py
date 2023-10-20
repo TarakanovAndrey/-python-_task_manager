@@ -70,7 +70,7 @@ class RegisterUser(CreateView):
 class ListUsersView(View): # можно заменить на функцию, класс здесь никакой нагрузки не несет
 
     def get(self, request, *args, **kwargs):
-        users_list = User.objects.filter(is_staff=0)
+        users_list = User.objects.all()
         return render(request, 'users/users_list.html', {'users_list': users_list})
 
 

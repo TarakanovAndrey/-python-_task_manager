@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-19 15:18+0300\n"
+"POT-Creation-Date: 2023-10-20 19:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: statuses/forms.py:6 statuses/forms.py:10
-#: statuses/templates/statuses/statuses_list.html:15
+#: labels/forms.py:12 labels/forms.py:17
+#: labels/templates/labels/labels_list.html:15 statuses/forms.py:12
+#: statuses/forms.py:17 statuses/templates/statuses/statuses_list.html:15
+#: tasks/forms.py:13 tasks/forms.py:23 tasks/templates/tasks/tasks_list.html:20
 msgid "Name"
+msgstr ""
+
+#: labels/templates/labels/label_confirm_delete.html:9
+msgid "Deleting a label"
+msgstr ""
+
+#: labels/templates/labels/label_confirm_delete.html:10
+#: statuses/templates/statuses/status_confirm_delete.html:10
+#: tasks/templates/tasks/task_confirm_delete.html:10
+#: users/templates/auth/user_confirm_delete.html:10
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: labels/templates/labels/label_confirm_delete.html:13
+#: statuses/templates/statuses/status_confirm_delete.html:13
+#: tasks/templates/tasks/task_confirm_delete.html:13
+#: users/templates/auth/user_confirm_delete.html:13
+msgid "Yes, delete"
+msgstr ""
+
+#: labels/templates/labels/label_create.html:10
+#: labels/templates/labels/labels_list.html:10
+msgid "Create label"
+msgstr ""
+
+#: labels/templates/labels/label_create.html:20
+#: statuses/templates/statuses/status_create.html:20
+msgid "Create"
+msgstr ""
+
+#: labels/templates/labels/label_form.html:9
+msgid "Label change"
+msgstr ""
+
+#: labels/templates/labels/label_form.html:19
+#: statuses/templates/statuses/status_form.html:19
+#: tasks/templates/tasks/task_form.html:22
+#: tasks/templates/tasks/task_info.html:54
+#: users/templates/auth/user_form.html:37
+msgid "Change"
+msgstr ""
+
+#: labels/templates/labels/labels_list.html:9
+#: task_manager/templates/task_manager/base.html:40 tasks/forms.py:17
+#: tasks/forms.py:47 tasks/templates/tasks/task_info.html:43
+msgid "Labels"
+msgstr ""
+
+#: labels/templates/labels/labels_list.html:14
+#: statuses/templates/statuses/statuses_list.html:14
+#: tasks/templates/tasks/tasks_list.html:19
+#: users/templates/users/users_list.html:13
+msgid "ID"
+msgstr ""
+
+#: labels/templates/labels/labels_list.html:16
+#: statuses/templates/statuses/statuses_list.html:16
+#: tasks/templates/tasks/task_info.html:37
+#: tasks/templates/tasks/tasks_list.html:24
+#: users/templates/users/users_list.html:16
+msgid "Created at"
+msgstr ""
+
+#: labels/templates/labels/labels_list.html:30
+#: labels/templates/labels/labels_list.html:34
+#: statuses/templates/statuses/statuses_list.html:30
+#: statuses/templates/statuses/statuses_list.html:34
+#: tasks/templates/tasks/tasks_list.html:41
+#: tasks/templates/tasks/tasks_list.html:45
+#: users/templates/users/users_list.html:31
+#: users/templates/users/users_list.html:35
+msgid "Update"
+msgstr ""
+
+#: labels/templates/labels/labels_list.html:32
+#: labels/templates/labels/labels_list.html:36
+#: statuses/templates/statuses/statuses_list.html:32
+#: statuses/templates/statuses/statuses_list.html:36
+#: tasks/templates/tasks/task_info.html:56
+#: tasks/templates/tasks/tasks_list.html:43
+#: tasks/templates/tasks/tasks_list.html:47
+#: users/templates/users/users_list.html:33
+#: users/templates/users/users_list.html:37
+msgid "Delete"
+msgstr ""
+
+#: labels/views.py:34 statuses/views.py:31
+msgid "OK"
+msgstr ""
+
+#: statuses/templates/statuses/status_confirm_delete.html:9
+msgid "Deleting a status"
 msgstr ""
 
 #: statuses/templates/statuses/status_create.html:10
@@ -28,8 +122,8 @@ msgstr ""
 msgid "Create status"
 msgstr ""
 
-#: statuses/templates/statuses/status_create.html:19
-msgid "Create"
+#: statuses/templates/statuses/status_form.html:9
+msgid "Status change"
 msgstr ""
 
 #: statuses/templates/statuses/statuses_list.html:9
@@ -37,35 +131,11 @@ msgstr ""
 msgid "Statuses"
 msgstr ""
 
-#: statuses/templates/statuses/statuses_list.html:14
-#: users/templates/users/users_list.html:13
-msgid "ID"
-msgstr ""
-
-#: statuses/templates/statuses/statuses_list.html:16
-#: users/templates/users/users_list.html:16
-msgid "Created at"
-msgstr ""
-
-#: statuses/templates/statuses/statuses_list.html:30
-#: statuses/templates/statuses/statuses_list.html:34
-#: users/templates/users/users_list.html:31
-#: users/templates/users/users_list.html:35
-msgid "Update"
-msgstr ""
-
-#: statuses/templates/statuses/statuses_list.html:32
-#: statuses/templates/statuses/statuses_list.html:36
-#: users/templates/users/users_list.html:33
-#: users/templates/users/users_list.html:37
-msgid "Delete"
-msgstr ""
-
-#: task_manager/settings.py:148
+#: task_manager/settings.py:152
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:149
+#: task_manager/settings.py:153
 msgid "Russian"
 msgstr ""
 
@@ -82,11 +152,8 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: task_manager/templates/task_manager/base.html:40
-msgid "Tags"
-msgstr ""
-
 #: task_manager/templates/task_manager/base.html:46
+#: tasks/templates/tasks/tasks_list.html:9
 msgid "Tasks"
 msgstr ""
 
@@ -112,6 +179,45 @@ msgstr ""
 
 #: task_manager/templates/task_manager/index.html:25
 msgid "To learn more"
+msgstr ""
+
+#: tasks/forms.py:14 tasks/forms.py:29 tasks/forms.py:35
+msgid "Description"
+msgstr ""
+
+#: tasks/forms.py:15 tasks/templates/tasks/task_info.html:32
+#: tasks/templates/tasks/tasks_list.html:21
+msgid "Status"
+msgstr ""
+
+#: tasks/forms.py:16 tasks/forms.py:41 tasks/templates/tasks/task_info.html:27
+#: tasks/templates/tasks/tasks_list.html:23
+msgid "Executor"
+msgstr ""
+
+#: tasks/templates/tasks/task_confirm_delete.html:9
+msgid "Deleting a task"
+msgstr ""
+
+#: tasks/templates/tasks/task_create.html:9
+msgid "Create a task"
+msgstr ""
+
+#: tasks/templates/tasks/task_form.html:9
+msgid "Changing the task"
+msgstr ""
+
+#: tasks/templates/tasks/task_info.html:11
+msgid "Viewing a task"
+msgstr ""
+
+#: tasks/templates/tasks/task_info.html:22
+#: tasks/templates/tasks/tasks_list.html:22
+msgid "Author"
+msgstr ""
+
+#: tasks/templates/tasks/tasks_list.html:10
+msgid "Create task"
 msgstr ""
 
 #: users/forms.py:11 users/forms.py:15 users/forms.py:34 users/forms.py:38
@@ -152,20 +258,8 @@ msgstr ""
 msgid "Deleting a user"
 msgstr ""
 
-#: users/templates/auth/user_confirm_delete.html:10
-msgid "Are you sure you want to delete"
-msgstr ""
-
-#: users/templates/auth/user_confirm_delete.html:13
-msgid "Yes, delete"
-msgstr ""
-
 #: users/templates/auth/user_form.html:10
 msgid "Changing the user"
-msgstr ""
-
-#: users/templates/auth/user_form.html:37
-msgid "Change"
 msgstr ""
 
 #: users/templates/users/create_user.html:38

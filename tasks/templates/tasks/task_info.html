@@ -1,0 +1,64 @@
+{% extends 'task_manager/base.html' %}
+{% load i18n %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_javascript %}
+
+
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4">{% translate 'Viewing a task' %}</h1>
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            <h2>{{ task_datas.task_name }}</h2>
+        </div>
+        <div class="card-body bg-light">
+            <p>{{ task_datas.task_description }}</p>
+            <hr>
+
+            <div class="container">
+                <div class="row p-1">
+                    <div class="col">{% translate 'Author' %}</div>
+                    <div class="col">{{ task_datas.task_author }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">{% translate 'Executor' %}</div>
+                    <div class="col">{{ task_datas.task_executor }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">{% translate 'Status' %}</div>
+                    <div class="col">{{ task_datas.task_status }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">{% translate 'Created at' %}</div>
+                    <div class="col">{{ task_datas.task_created }}</div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">
+                        <h6>{% translate 'Labels' %}</h6>
+                        <ul>
+                            {% for label in task_datas.task_labels %}
+                                <li>{{ label }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col">
+                        <a href="{% url 'task_update' task_datas.task_pk %}">{% translate 'Change' %}</a>
+                        <br>
+                        <a href="{% url 'task_delete' task_datas.task_pk %}">{% translate 'Delete' %}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

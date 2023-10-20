@@ -1,0 +1,56 @@
+{% extends 'task_manager/base.html' %}
+{% load i18n %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_javascript %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4">{% translate 'Tasks' %}</h1>
+    <a class="nav-link" href="{% url 'task_create' %}">{% translate 'Create task' %}</a>
+
+    <form class="form-inline center" method="get">
+    Здесь будет форма
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>{% translate 'ID' %}</th>
+              <th>{% translate 'Name' %}</th>
+              <th>{% translate 'Status' %}</th>
+              <th>{% translate 'Author' %}</th>
+              <th>{% translate 'Executor' %}</th>
+              <th>{% translate 'Created at' %}</th>
+              <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% if tasks_list %}
+            {% for task in tasks_list %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td><a href="{% url 'task_info' task.pk %}">{{ task.task_name }}</a></td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.author }}</td>
+                    <td>{{ task.executor }}</td>
+                    <td>{{ task.created_at }}</td>
+                    <td>
+                        {% if request.user.is_authenticated and request.user.id == user.id %}
+                            <a href="{% url 'task_update' task.pk %}">{% translate 'Update' %}</a>
+                            <br>
+                            <a href="{% url 'task_delete' task.pk %}">{% translate 'Delete' %}</a>
+                            {% else %}
+                            <a href="{% url 'login' %}">{% translate 'Update' %}</a>
+                            <br>
+                            <a href="{% url 'login' %}">{% translate 'Delete' %}</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
