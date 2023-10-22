@@ -7,8 +7,7 @@ class Task(models.Model):
     task_name = models.CharField(max_length=100)
     description = models.TextField(max_length=399)
     created_at = models.DateTimeField(auto_now_add=True)
-    author = models.CharField(max_length=150) # автоматически вносить в базу
-    # author = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='auth')
+    author = models.CharField(max_length=150)
     executor = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
     labels = models.ManyToManyField(Label)

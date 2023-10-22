@@ -4,15 +4,29 @@ from . import forms
 from django.contrib import messages
 from . import models
 from django.urls import reverse_lazy
+from tasks.support_functions import get_filtered_tasks
 
 
-def get_list_tasks(request):
-    tasks_list = models.Task.objects.all()
-    return render(
-        request,
-        'tasks/tasks_list.html',
-        {'tasks_list': tasks_list}
-    )
+def get_tasks_list(request):
+    form = forms.TasksFilterForm(request.GET)
+
+    request_parameters = request.GET
+    user = request.user
+    if any(request_parameters.values()) is False:
+        form = forms.TasksFilterForm()
+        tasks_list = models.Task.objects.all()
+        return render(request, 'tasks/tasks_list.html', {
+            'form': form,
+            'tasks_list': tasks_list
+        })
+
+    else:
+        tasks_list = get_filtered_tasks(request_parameters, user)
+
+        return render(request, 'tasks/tasks_list.html', {
+            'form': form,
+            'tasks_list': tasks_list
+        })
 
 
 def get_task_info(request, pk):
