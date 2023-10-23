@@ -2,7 +2,6 @@ from django import forms
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
-import django_filters
 
 
 class TaskCreateForm(ModelForm):
@@ -53,10 +52,9 @@ class TaskCreateForm(ModelForm):
 
 class TasksFilterForm(ModelForm):
 
-
     class Meta:
         model = models.Task
-        fields = ['status', 'executor', 'labels',]
+        fields = ['status', 'executor', 'labels', ]
         labels = {
             'status': _('Status'),
             'executor': _('Executor'),
@@ -89,5 +87,3 @@ class TasksFilterForm(ModelForm):
         self.fields['executor'].required = False
         self.fields['labels'].required = False
         self.fields['labels'].empty_label = '---------'
-
-

@@ -56,7 +56,6 @@ class TaskCreateView(CreateView):
         form = forms.TaskCreateForm
         return render(request, 'tasks/task_create.html', {'form': form})
 
-
     def post(self, request, *args, **kwargs):
         form = forms.TaskCreateForm(request.POST)
         if form.is_valid():

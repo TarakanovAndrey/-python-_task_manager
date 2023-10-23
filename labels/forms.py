@@ -8,7 +8,7 @@ class CreateLabelForm(ModelForm):
 
     class Meta:
         model = models.Label
-        fields = ['label_name',]
+        fields = ['label_name', ]
         labels = {'label_name': _('Name')}
         widgets = {
             'label_name': forms.TextInput(
@@ -18,4 +18,3 @@ class CreateLabelForm(ModelForm):
                 }
             )
         }
-

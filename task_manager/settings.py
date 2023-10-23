@@ -55,13 +55,11 @@ INSTALLED_APPS = [
 ]
 
 
-MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
- }
+MESSAGE_TAGS = {messages.DEBUG: 'alert-secondary',
+                messages.INFO: 'alert-info',
+                messages.SUCCESS: 'alert-success',
+                messages.WARNING: 'alert-warning',
+                messages.ERROR: 'alert-danger', }
 
 
 MIDDLEWARE = [
@@ -121,8 +119,6 @@ if 'RENDER' not in os.environ:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
-
 
 
 # Password validation

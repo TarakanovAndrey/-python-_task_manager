@@ -2,10 +2,9 @@ from django.test import TestCase
 from . models import Status
 
 
-
 class UserTestCase(TestCase):
     def setUp(self):
-        Status.objects.create(status_name = "Status1")
+        Status.objects.create(status_name="Status1")
 
     def test_status_create(self):
         status = Status.objects.get(status_name='Status1')

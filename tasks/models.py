@@ -3,6 +3,7 @@ from statuses.models import Status
 from labels.models import Label
 from django.contrib.auth.models import User
 
+
 class Task(models.Model):
     task_name = models.CharField(max_length=100)
     description = models.TextField(max_length=399)
