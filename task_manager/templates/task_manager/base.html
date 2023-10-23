@@ -1,70 +1,38 @@
+<!DOCTYPE html>
+
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-
-<!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
 {% load django_bootstrap5 %}
 {% bootstrap_javascript %}
 
 {% bootstrap_css %}
+
+
+<html lang="{{ LANGUAGE_CODE }}">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% translate 'Task manager Hexlet' %}</title>
-
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">{% translate 'Task manager' %}</a>
+      <a class="navbar-brand" href="{% url 'home' %}">{% translate 'Task manager' %}</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users_list' %}">{% translate 'Users' %}</a>
-                </li>
-            </ul>
-
           {% if request.user.is_authenticated %}
-              <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-                     <a class="nav-link" href="{% url 'statuses_list' %}">{% translate 'Statuses' %}</a>
-                 </li>
-              </ul>
 
-              <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-                     <a class="nav-link" href="{% url 'labels_list' %}">{% translate 'Labels' %}</a>
-                 </li>
-              </ul>
+          {% include 'task_manager/menu_user_login.html' %}
 
-              <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-                     <a class="nav-link" href="{% url 'tasks_list' %}">{% translate 'Tasks' %}</a>
-                 </li>
-              </ul>
-
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">{% translate 'Logout' %}</a>
-                </li>
-            </ul>
           {% else %}
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">{% translate 'Login' %}</a>
-                </li>
-            </ul>
+          {% include 'task_manager/menu_user_logout.html' %}
 
-          <ul class="navbar-nav mr-auto">
-             <li class="nav-item">
-                 <a class="nav-link" href="{% url 'create' %}">{% translate 'Registation' %}</a>
-             </li>
-          </ul>
           {% endif %}
 
       </div>
@@ -81,4 +49,5 @@
     </footer>
 
 </body>
+
 </html>

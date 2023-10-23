@@ -8,6 +8,9 @@ from tasks.support_functions import get_filtered_tasks
 
 
 def get_tasks_list(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
     form = forms.TasksFilterForm(request.GET)
 
     request_parameters = request.GET

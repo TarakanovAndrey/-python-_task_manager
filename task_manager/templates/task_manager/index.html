@@ -8,22 +8,23 @@
     <div class="container wrapper flex-grow-1">
 
       {% if messages %}
-        {% if request.user.is_authenticated %}
-            {% include 'users/msg_login.html' %}
-        {% else %}
-            {% include 'users/msg_logout.html' %}
-        {% endif %}
+      {% for msg in messages %}
+        <div class="alert {{ msg.tags }} alert-dismissible fade show" role="alert">
+              {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
       {% endif %}
 
-        <h1 class="my-4"></h1>
-        <h1 class="my-4"></h1>
-        <div class="card">
-          <div class="card-body p-5 bg-light">
-            <div class="display-4">{% translate 'Greetings from Hexlet!' %}</div>
-            <p class="lead">{% translate 'Practical programming courses' %}</p>
-            <hr>
-            <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io">{% translate 'To learn more' %}</a>
-          </div>
+      <h1 class="my-4"></h1>
+      <h1 class="my-4"></h1>
+      <div class="card">
+        <div class="card-body p-5 bg-light">
+          <div class="display-4">{% translate 'Greetings from Hexlet!' %}</div>
+          <p class="lead">{% translate 'Practical programming courses' %}</p>
+          <hr>
+          <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io">{% translate 'To learn more' %}</a>
         </div>
+      </div>
     </div>
 {% endblock %}

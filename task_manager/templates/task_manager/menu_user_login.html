@@ -1,0 +1,30 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_javascript %}
+
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'users_list' %}">{% translate 'Users' %}</a>
+    </li>
+
+     <li class="nav-item">
+         <a class="nav-link" href="{% url 'statuses_list' %}">{% translate 'Statuses' %}</a>
+     </li>
+
+     <li class="nav-item">
+         <a class="nav-link" href="{% url 'labels_list' %}">{% translate 'Labels' %}</a>
+     </li>
+
+     <li class="nav-item">
+         <a class="nav-link" href="{% url 'tasks_list' %}">{% translate 'Tasks' %}</a>
+     </li>
+</ul>
+
+<ul class="navbar-nav">
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <input class="btn nav-link" type="submit" value="{% translate 'Logout' %}">
+    </form>
+</ul>

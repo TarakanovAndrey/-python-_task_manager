@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views import View
 
 
-class IndexView(View):
-
-    def get(selfr, request):
-        return render(request, 'task_manager/index.html')
+def get_home_page(request):
+    return render(
+        request,
+        template_name='task_manager/index.html'
+    )

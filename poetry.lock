@@ -159,6 +159,20 @@ files = [
 django = ">=3.2"
 
 [[package]]
+name = "django-crispy-forms"
+version = "2.1"
+description = "Best way to have Django DRY forms"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django-crispy-forms-2.1.tar.gz", hash = "sha256:4d7ec431933ad4d4b5c5a6de4a584d24613c347db9ac168723c9aaf63af4bb96"},
+    {file = "django_crispy_forms-2.1-py3-none-any.whl", hash = "sha256:d592044771412ae1bd539cc377203aa61d4eebe77fcbc07fbc8f12d3746d4f6b"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+
+[[package]]
 name = "django-filter"
 version = "23.3"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
@@ -450,4 +464,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3b7a5a32c0a08309d7c26ebd6ff7f0d7b7848442028aae8d2d934add54404253"
+content-hash = "b95fb358c691599399dccfe5f67e96fbc6e772f4e5ff872c3aa6e51808b739e5"

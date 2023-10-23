@@ -1,8 +1,7 @@
 from django import forms
-from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, ReadOnlyPasswordHashField
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
@@ -14,7 +13,8 @@ class LoginUserForm(forms.Form):
                 'class': 'form-control',
                 'placeholder': _('Username'),
             }
-        )
+        ),
+        max_length=150,
     )
     password = forms.CharField(
         label=_('Password'),
@@ -23,7 +23,7 @@ class LoginUserForm(forms.Form):
                 'class': 'form-control',
                 'placeholder': _('Password'),
             }
-        )
+        ),
     )
 
 
@@ -38,6 +38,8 @@ class RegisterUserForm(UserCreationForm):
                 'placeholder': _('Username'),
             }
         ),
+        max_length=150,
+        # error_messages={"unique": "This usern"},
     )
     password1 = forms.CharField(
         help_text=_('Your password must contain at least 3 characters.'),
@@ -70,29 +72,32 @@ class RegisterUserForm(UserCreationForm):
         }
         widgets = {
             'first_name': forms.TextInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('First name'),
-            }),
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': _('First name'),
+                    'maxlength': 150,
+                    'required': True,
+                }
+            ),
             'last_name': forms.TextInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Last name'),
-            }
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': _('Last name'),
+                    'maxlength': 150,
+                    'required': True,
+                }
             ),
         }
 
     def clean_username(self):
         datas = self.cleaned_data
-
         users_list = User.objects.all()
         if datas['username'] in users_list.exclude(username=datas['username']):
-            raise forms.ValidationError('Такое имя пользователя уже существует')
+            raise forms.ValidationError(_('A user with this name already exists.'))
         return datas['username']
 
-
-    def clean_password2(self): # скорее всего данная проверка не несет никакой функциональности, перепроверить
+    def clean_password2(self):
         cd = self.cleaned_data
         if cd['password1'] != cd['password2']:
-            raise forms.ValidationError("Пароли не совпадают!")
+            raise forms.ValidationError(_("The entered passwords do not match."))
         return cd['password1']

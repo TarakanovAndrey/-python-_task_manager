@@ -4,6 +4,8 @@
 {% load django_bootstrap5 %}
 {% bootstrap_javascript %}
 
+{% bootstrap_css %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -14,10 +16,20 @@
 
   {% for field in form %}
     <div class="mb-3">
+
       <label class="form-label">
         {{ field.label }}
       </label>
+
       {{ field }}
+
+      {% if field.errors %}
+<!--      <div class="invalid-feedback">-->
+        {{ field.errors }}
+<!--      </div>-->
+      {% endif %}
+
+
     {% if field.help_text %}
       <div class="form-text">
         {% if field.name == 'password1' %}
@@ -29,9 +41,9 @@
         {% else %}
           {{ field.help_text }}
         {% endif %}
-
       </div>
     {% endif %}
+
     </div>
   {% endfor %}
 

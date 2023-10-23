@@ -6,7 +6,11 @@ from labels.models import Label
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+
 def get_list_labels(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
     labels_list = Label.objects.all()
     return render(
         request,
