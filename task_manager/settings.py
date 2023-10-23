@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as messages
-# from dotenv import load_dotenv
 import environ
 
 env = environ.Env()
