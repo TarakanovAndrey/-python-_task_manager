@@ -15,9 +15,15 @@ import os
 import dj_database_url
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as messages
+# from dotenv import load_dotenv
+import environ
+
+env = environ.Env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -105,20 +111,37 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # read os.environ['DATABASE_URL'] and raises
+    # ImproperlyConfigured exception if not found
+    #
+    # The db() method is an alias for db_url().
+    'default': env.db_url(
+        'SQLITE_URL',
+        default='sqlite:////tmp/my-tmp-sqlite.db'
+    ),
+
+    # read os.environ['SQLITE_URL']
+    'extra': env.db()
 }
 
-if 'RENDER' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost:5432/task_manager',
-            conn_max_age=600
-        )
-    }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# if 'RENDER' in os.environ:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default='postgresql://postgres:postgres@localhost:5432/task_manager',
+#             conn_max_age=600
+#         )
+#     }
 
 
 
