@@ -23,7 +23,6 @@ env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -98,7 +97,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -125,24 +123,6 @@ DATABASES = {
         default='sqlite:////tmp/my-tmp-sqlite.db'
     )
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# if 'RENDER' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#             default='postgresql://postgres:postgres@localhost:5432/task_manager',
-#             conn_max_age=600
-#         )
-#     }
-
-
 
 
 # Password validation
@@ -176,13 +156,13 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-# USE_L10N = True
+USE_L10N = True
 
 USE_TZ = True
 
 LANGUAGES = (
-    ('en', _('English')),
     ('ru', _('Russian')),
+    ('en', _('English')),
 )
 
 LOCALE_PATHS = [
