@@ -18,3 +18,6 @@ test:
 
 lint:
 	poetry run flake8 .
+
+test-coverage:
+		poetry run pytest --cov=. --cov-report xml tests
