@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.utils.translation import gettext_lazy as _
 
 
 def get_home_page(request):
