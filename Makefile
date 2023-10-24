@@ -21,3 +21,7 @@ lint:
 
 test-coverage:
 		poetry run pytest --cov=. --cov-report xml tests
+
+
+install:
+	poetry install
