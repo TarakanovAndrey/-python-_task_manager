@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 12:38+0300\n"
+"POT-Creation-Date: 2023-10-24 18:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: labels/forms.py:12 labels/forms.py:17
 #: labels/templates/labels/labels_list.html:15 statuses/forms.py:12
 #: statuses/forms.py:17 statuses/templates/statuses/statuses_list.html:27
-#: tasks/forms.py:14 tasks/forms.py:24 tasks/templates/tasks/tasks_list.html:40
+#: tasks/forms.py:13 tasks/forms.py:23 tasks/templates/tasks/tasks_list.html:40
 msgid "Name"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 
 #: labels/templates/labels/labels_list.html:9
 #: task_manager/templates/task_manager/menu_user_login.html:17
-#: tasks/forms.py:18 tasks/forms.py:48 tasks/forms.py:63 tasks/forms.py:81
+#: tasks/forms.py:17 tasks/forms.py:47 tasks/forms.py:61 tasks/forms.py:79
 #: tasks/templates/tasks/task_info.html:43
 msgid "Labels"
 msgstr ""
@@ -75,7 +75,7 @@ msgstr ""
 #: labels/templates/labels/labels_list.html:14
 #: statuses/templates/statuses/statuses_list.html:26
 #: tasks/templates/tasks/tasks_list.html:39
-#: users/templates/users/users_list.html:13
+#: users/templates/users/users_list.html:22
 msgid "ID"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 #: statuses/templates/statuses/statuses_list.html:28
 #: tasks/templates/tasks/task_info.html:37
 #: tasks/templates/tasks/tasks_list.html:44
-#: users/templates/users/users_list.html:16
+#: users/templates/users/users_list.html:25
 msgid "Created at"
 msgstr ""
 
@@ -93,8 +93,8 @@ msgstr ""
 #: statuses/templates/statuses/statuses_list.html:46
 #: tasks/templates/tasks/tasks_list.html:62
 #: tasks/templates/tasks/tasks_list.html:66
-#: users/templates/users/users_list.html:31
-#: users/templates/users/users_list.html:35
+#: users/templates/users/users_list.html:40
+#: users/templates/users/users_list.html:44
 msgid "Update"
 msgstr ""
 
@@ -105,12 +105,12 @@ msgstr ""
 #: tasks/templates/tasks/task_info.html:56
 #: tasks/templates/tasks/tasks_list.html:64
 #: tasks/templates/tasks/tasks_list.html:68
-#: users/templates/users/users_list.html:33
-#: users/templates/users/users_list.html:37
+#: users/templates/users/users_list.html:42
+#: users/templates/users/users_list.html:46
 msgid "Delete"
 msgstr ""
 
-#: labels/views.py:34
+#: labels/views.py:38
 msgid "OK"
 msgstr ""
 
@@ -132,35 +132,35 @@ msgstr ""
 msgid "Statuses"
 msgstr ""
 
-#: statuses/views.py:33
+#: statuses/views.py:36
 msgid "Status successfully created"
 msgstr ""
 
-#: statuses/views.py:44
+#: statuses/views.py:47
 msgid "Status successfully updated"
 msgstr ""
 
-#: statuses/views.py:56
+#: statuses/views.py:59
 msgid "Status successfully deleted"
 msgstr ""
 
-#: statuses/views.py:59
+#: statuses/views.py:62
 msgid "It is not possible to delete the status because it is being used"
 msgstr ""
 
-#: task_manager/settings.py:164
-msgid "English"
-msgstr ""
-
-#: task_manager/settings.py:165
+#: task_manager/settings.py:168
 msgid "Russian"
 msgstr ""
 
-#: task_manager/templates/task_manager/base.html:16
+#: task_manager/settings.py:169
+msgid "English"
+msgstr ""
+
+#: task_manager/templates/task_manager/base.html:17
 msgid "Task manager Hexlet"
 msgstr ""
 
-#: task_manager/templates/task_manager/base.html:22
+#: task_manager/templates/task_manager/base.html:23
 msgid "Task manager"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 
 #: task_manager/templates/task_manager/menu_user_login.html:9
 #: task_manager/templates/task_manager/menu_user_logout.html:9
-#: users/templates/users/users_list.html:9
+#: users/templates/users/users_list.html:18
 msgid "Users"
 msgstr ""
 
@@ -199,16 +199,16 @@ msgstr ""
 msgid "Registation"
 msgstr ""
 
-#: tasks/forms.py:15 tasks/forms.py:30 tasks/forms.py:36 tasks/forms.py:69
+#: tasks/forms.py:14 tasks/forms.py:29 tasks/forms.py:35 tasks/forms.py:67
 msgid "Description"
 msgstr ""
 
-#: tasks/forms.py:16 tasks/forms.py:61 tasks/templates/tasks/task_info.html:32
+#: tasks/forms.py:15 tasks/forms.py:59 tasks/templates/tasks/task_info.html:32
 #: tasks/templates/tasks/tasks_list.html:41
 msgid "Status"
 msgstr ""
 
-#: tasks/forms.py:17 tasks/forms.py:42 tasks/forms.py:62 tasks/forms.py:75
+#: tasks/forms.py:16 tasks/forms.py:41 tasks/forms.py:60 tasks/forms.py:73
 #: tasks/templates/tasks/task_info.html:27
 #: tasks/templates/tasks/tasks_list.html:43
 msgid "Executor"
@@ -305,11 +305,11 @@ msgstr ""
 msgid "Entrance"
 msgstr ""
 
-#: users/templates/users/users_list.html:14
+#: users/templates/users/users_list.html:23
 msgid "Nickname"
 msgstr ""
 
-#: users/templates/users/users_list.html:15
+#: users/templates/users/users_list.html:24
 msgid "Full name"
 msgstr ""
 
@@ -333,6 +333,10 @@ msgstr ""
 
 #: users/views.py:92
 msgid "The user has been successfully registered"
+msgstr ""
+
+#: users/views.py:110
+msgid "User successfully changed"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"
