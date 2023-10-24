@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 18:45+0300\n"
+"POT-Creation-Date: 2023-10-24 18:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -337,6 +337,10 @@ msgstr ""
 
 #: users/views.py:110
 msgid "User successfully changed"
+msgstr ""
+
+#: users/views.py:119
+msgid "The user has been successfully deleted"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"

@@ -116,5 +116,5 @@ class UserDeleteView(DeleteView):
     success_url = reverse_lazy('users_list')
 
     def form_valid(self, form):
-        messages.success(self.request, 'OK')
+        messages.success(self.request, _('The user has been successfully deleted'))
         return super(UserDeleteView, self).form_valid(form)
