@@ -8,10 +8,10 @@ class CreateStatusForm(ModelForm):
 
     class Meta:
         model = models.Status
-        fields = ['status_name', ]
-        labels = {'status_name': _('Name')}
+        fields = ['name', ]
+        labels = {'name': _('Name')}
         widgets = {
-            'status_name': forms.TextInput(
+            'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder': _('Name')
