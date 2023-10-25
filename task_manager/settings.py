@@ -122,34 +122,20 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 
 
-# DATABASES = {
-#     # read os.environ['DATABASE_URL'] and raises
-#     # ImproperlyConfigured exception if not found
-#     #
-#     # The db() method is an alias for db_url().
-#     'default': env.db('DATABASE_URL'),
-#
-#     # read os.environ['SQLITE_URL']
-#     'extra': env.db_url(
-#         'SQLITE_URL',
-#         default='sqlite:////tmp/my-tmp-sqlite.db'
-#     )
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-    }
+    # read os.environ['DATABASE_URL'] and raises
+    # ImproperlyConfigured exception if not found
+    #
+    # The db() method is an alias for db_url().
+    'default': env.db('DATABASE_URL'),
+
+    # read os.environ['SQLITE_URL']
+    'extra': env.db_url(
+        'SQLITE_URL',
+        default='sqlite:////tmp/my-tmp-sqlite.db'
+    )
 }
+
 
 
 # Password validation
