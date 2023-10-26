@@ -129,10 +129,10 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('DB_ENGINE'),
-        'NAME': BASE_DIR / os.environ.get('DB_NAME'),
-    }
+    'default': dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    ),
 }
 
 
