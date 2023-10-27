@@ -8,16 +8,16 @@ class TaskCreateForm(ModelForm):
 
     class Meta:
         model = models.Task
-        fields = ['task_name', 'description', 'status', 'executor', 'labels']
+        fields = ['name', 'description', 'status', 'executor', 'labels']
         labels = {
-            'task_name': _('Name'),
+            'name': _('Name'),
             'description': _('Description'),
             'status': _('Status'),
             'executor': _('Executor'),
             'labels': _('Labels'),
         }
         widgets = {
-            'task_name': forms.TextInput(
+            'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder': _('Name')
