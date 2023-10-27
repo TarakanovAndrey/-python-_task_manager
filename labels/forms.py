@@ -8,10 +8,10 @@ class CreateLabelForm(ModelForm):
 
     class Meta:
         model = models.Label
-        fields = ['label_name', ]
-        labels = {'label_name': _('Name')}
+        fields = ['name', ]
+        labels = {'name': _('Name')}
         widgets = {
-            'label_name': forms.TextInput(
+            'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder': _('Name')

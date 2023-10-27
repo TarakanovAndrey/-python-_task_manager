@@ -12,7 +12,7 @@
     {% csrf_token %}
     <div class="mb-3">
         {% for field in form %}
-            <label class="form-label">{{ field.label }}</label>
+            <label class="form-label" for="id_{{ field.name }}">{{ field.label }}</label>
             {{ field }}
         {% endfor %}
     </div>
