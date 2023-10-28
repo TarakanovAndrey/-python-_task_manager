@@ -2,24 +2,28 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from . forms import LoginUserForm, RegisterUserForm
 from django.contrib.auth import authenticate, login, logout
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 
+class UsersListView(ListView):
+    model = User
+    template_name = 'users/users_list.html'
+    context_object_name = 'users_list'
 
-def get_users_list(request):
-    users_list = User.objects.all()
-    return render(
-        request,
-        template_name='users/users_list.html',
-        context={
-            'users_list': users_list
-        }
-    )
+
+class RegisterUserView(SuccessMessageMixin, CreateView):
+    model = User
+    form_class = RegisterUserForm
+    template_name = 'users/create_user.html'
+    success_url = reverse_lazy('login')
+    success_message = _("The user has been successfully registered")
 
 
 class LoginUserView(LoginView):
@@ -70,37 +74,7 @@ class LogoutUserView(LogoutView):
         return redirect('home')
 
 
-class RegisterUserView(CreateView):
 
-    def get(self, request, *args, **kwargs):
-        form = RegisterUserForm()
-        return render(
-            request,
-            template_name='users/create_user.html',
-            context={
-                'form': form,
-                'title': _("Registration")
-            }
-        )
-
-    def post(self, request, *args, **kwargs):
-        form = RegisterUserForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password1'])
-            user.save()
-            messages.success(
-                request,
-                _('The user has been successfully registered'),
-            )
-            return redirect('login')
-        return render(
-            request,
-            template_name='users/create_user.html',
-            context={
-                'form': form
-            }
-        )
 
 
 class UserUpdateView(UpdateView):

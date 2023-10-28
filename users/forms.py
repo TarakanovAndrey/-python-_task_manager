@@ -39,7 +39,7 @@ class RegisterUserForm(UserCreationForm):
             }
         ),
         max_length=150,
-        # error_messages={"unique": "This usern"},
+
     )
     password1 = forms.CharField(
         help_text=_('Your password must contain at least 3 characters.'),
