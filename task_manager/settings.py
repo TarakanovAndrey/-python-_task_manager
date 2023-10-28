@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'statuses.apps.StatusesConfig',
     'labels.apps.LabelsConfig',
-    'tasks.apps.TasksConfig',
+    # 'tasks.apps.TasksConfig',
     'django_filters',
     'crispy_forms',
 ]
