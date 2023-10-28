@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django.db.models import ProtectedError
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class UsersListView(ListView):
     model = User
@@ -101,15 +101,16 @@ class LogoutUserView(LogoutView):
 
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = RegisterUserForm
     success_url = reverse_lazy('users_list')
 
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(UserUpdateView, self).handle_no_permission()
+
     def get(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            messages.error(self.request, _("You are not logged in! Please log in."))
-            return redirect('login')
 
         user_id_for_update = kwargs['pk']
         user_id_auth = self.request.user.id
@@ -126,14 +127,15 @@ class UserUpdateView(UpdateView):
         return super(UserUpdateView, self).form_valid(form)
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(LoginRequiredMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
 
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(UserDeleteView, self).handle_no_permission()
+
     def get(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            messages.error(self.request, _("You are not logged in! Please log in."))
-            return redirect('login')
 
         user_id_for_delete = kwargs['pk']
         user_id_auth = self.request.user.id
