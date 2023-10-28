@@ -147,30 +147,34 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
     #         return redirect('users_list')
 
-    # def post(self, request, *args, **kwargs):
-    #     if kwargs['pk'] != self.request.user.id:
-    #         messages.error(self.request, _("You don't have the rights to change another user."))
-    #         return redirect('users_list')
-    #
-    #     try:
-    #         user = request.user
-    #         user.delete()
-    #         messages.success(self.request, _('The user has been successfully deleted'))
-    #         return redirect('users_list')
-    #     except ProtectedError:
-    #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
-    #         return redirect('users_list')
-
-    def form_valid(self, form):
-        if self.object != self.request.user:
+    def post(self, request, *args, **kwargs):
+        if kwargs['pk'] != self.request.user.id:
             messages.error(self.request, _("You don't have the rights to change another user."))
             return redirect('users_list')
 
         try:
-            self.object.delete()
+            user = request.user
+            user.delete()
+            messages.success(self.request, _('The user has been successfully deleted'))
+            # return redirect('users_list')
+            users_list = User.objects.all()
+            return render(request, 'users/users_list.html', {'users_list': users_list})
         except ProtectedError:
             messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
-            return redirect('users_list')
+            # return redirect('users_list')
+            users_list = User.objects.all()
+            return render(request, 'users/users_list.html')
 
-        messages.success(self.request, _('The user has been successfully deleted'))
-        return redirect(self.get_success_url())
+    # def form_valid(self, form):
+    #     if self.object != self.request.user:
+    #         messages.error(self.request, _("You don't have the rights to change another user."))
+    #         return redirect('users_list')
+    #
+    #     try:
+    #         self.object.delete()
+    #     except ProtectedError:
+    #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+    #         return redirect('users_list')
+    #
+    #     messages.success(self.request, _('The user has been successfully deleted'))
+        # return redirect(self.get_success_url())
