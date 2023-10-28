@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 18:57+0300\n"
+"POT-Creation-Date: 2023-10-28 21:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,7 @@ msgstr ""
 #: statuses/templates/statuses/status_confirm_delete.html:10
 #: tasks/templates/tasks/task_confirm_delete.html:10
 #: users/templates/auth/user_confirm_delete.html:10
+#: users/templates/users/user_delete.html:10
 msgid "Are you sure you want to delete"
 msgstr ""
 
@@ -40,6 +41,7 @@ msgstr ""
 #: statuses/templates/statuses/status_confirm_delete.html:13
 #: tasks/templates/tasks/task_confirm_delete.html:13
 #: users/templates/auth/user_confirm_delete.html:13
+#: users/templates/users/user_delete.html:13
 msgid "Yes, delete"
 msgstr ""
 
@@ -62,12 +64,13 @@ msgstr ""
 #: tasks/templates/tasks/task_form.html:22
 #: tasks/templates/tasks/task_info.html:54
 #: users/templates/auth/user_form.html:37
+#: users/templates/users/user_update.html:37
 msgid "Change"
 msgstr ""
 
 #: labels/templates/labels/labels_list.html:9
 #: task_manager/templates/task_manager/menu_user_login.html:17
-#: tasks/forms.py:17 tasks/forms.py:47 tasks/forms.py:61 tasks/forms.py:79
+#: tasks/forms.py:17 tasks/forms.py:51 tasks/forms.py:66 tasks/forms.py:84
 #: tasks/templates/tasks/task_info.html:43
 msgid "Labels"
 msgstr ""
@@ -89,24 +92,20 @@ msgstr ""
 
 #: labels/templates/labels/labels_list.html:30
 #: labels/templates/labels/labels_list.html:34
-#: statuses/templates/statuses/statuses_list.html:42
-#: statuses/templates/statuses/statuses_list.html:46
+#: statuses/templates/statuses/statuses_list.html:41
 #: tasks/templates/tasks/tasks_list.html:62
 #: tasks/templates/tasks/tasks_list.html:66
 #: users/templates/users/users_list.html:40
-#: users/templates/users/users_list.html:44
 msgid "Update"
 msgstr ""
 
 #: labels/templates/labels/labels_list.html:32
 #: labels/templates/labels/labels_list.html:36
-#: statuses/templates/statuses/statuses_list.html:44
-#: statuses/templates/statuses/statuses_list.html:48
+#: statuses/templates/statuses/statuses_list.html:43
 #: tasks/templates/tasks/task_info.html:56
 #: tasks/templates/tasks/tasks_list.html:64
 #: tasks/templates/tasks/tasks_list.html:68
 #: users/templates/users/users_list.html:42
-#: users/templates/users/users_list.html:46
 msgid "Delete"
 msgstr ""
 
@@ -132,27 +131,33 @@ msgstr ""
 msgid "Statuses"
 msgstr ""
 
-#: statuses/views.py:36
+#: statuses/views.py:20 statuses/views.py:31 statuses/views.py:50
+#: statuses/views.py:65 tasks/views.py:16 tasks/views.py:45 users/views.py:113
+#: users/views.py:139
+msgid "You are not logged in! Please log in."
+msgstr ""
+
+#: statuses/views.py:39
 msgid "Status successfully created"
 msgstr ""
 
-#: statuses/views.py:47
+#: statuses/views.py:54
 msgid "Status successfully updated"
 msgstr ""
 
-#: statuses/views.py:59
+#: statuses/views.py:71
 msgid "Status successfully deleted"
 msgstr ""
 
-#: statuses/views.py:62
+#: statuses/views.py:74
 msgid "It is not possible to delete the status because it is being used"
 msgstr ""
 
-#: task_manager/settings.py:168
+#: task_manager/settings.py:172
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:169
+#: task_manager/settings.py:173
 msgid "English"
 msgstr ""
 
@@ -199,16 +204,16 @@ msgstr ""
 msgid "Registation"
 msgstr ""
 
-#: tasks/forms.py:14 tasks/forms.py:29 tasks/forms.py:35 tasks/forms.py:67
+#: tasks/forms.py:14 tasks/forms.py:30 tasks/forms.py:37 tasks/forms.py:72
 msgid "Description"
 msgstr ""
 
-#: tasks/forms.py:15 tasks/forms.py:59 tasks/templates/tasks/task_info.html:32
+#: tasks/forms.py:15 tasks/forms.py:64 tasks/templates/tasks/task_info.html:32
 #: tasks/templates/tasks/tasks_list.html:41
 msgid "Status"
 msgstr ""
 
-#: tasks/forms.py:16 tasks/forms.py:41 tasks/forms.py:60 tasks/forms.py:73
+#: tasks/forms.py:16 tasks/forms.py:44 tasks/forms.py:65 tasks/forms.py:78
 #: tasks/templates/tasks/task_info.html:27
 #: tasks/templates/tasks/tasks_list.html:43
 msgid "Executor"
@@ -290,18 +295,24 @@ msgid "The entered passwords do not match."
 msgstr ""
 
 #: users/templates/auth/user_confirm_delete.html:9
+#: users/templates/users/user_delete.html:9
 msgid "Deleting a user"
 msgstr ""
 
 #: users/templates/auth/user_form.html:10
+#: users/templates/users/user_update.html:10
 msgid "Changing the user"
+msgstr ""
+
+#: users/templates/users/create_user.html:13 users/views.py:33
+msgid "Registration"
 msgstr ""
 
 #: users/templates/users/create_user.html:50
 msgid "Register"
 msgstr ""
 
-#: users/templates/users/login.html:17
+#: users/templates/users/login.html:18
 msgid "Entrance"
 msgstr ""
 
@@ -314,33 +325,37 @@ msgid "Full name"
 msgstr ""
 
 #: users/views.py:45
+msgid "The user has been successfully registered"
+msgstr ""
+
+#: users/views.py:78
 msgid "You are logged in"
 msgstr ""
 
-#: users/views.py:51
+#: users/views.py:84
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
 msgstr ""
 
-#: users/views.py:67
+#: users/views.py:100
 msgid "You are logged out"
 msgstr ""
 
-#: users/views.py:80
-msgid "Registration"
+#: users/views.py:122 users/views.py:144
+msgid "You don't have the rights to change another user."
 msgstr ""
 
-#: users/views.py:92
-msgid "The user has been successfully registered"
-msgstr ""
-
-#: users/views.py:110
+#: users/views.py:129
 msgid "User successfully changed"
 msgstr ""
 
-#: users/views.py:119
+#: users/views.py:136
 msgid "The user has been successfully deleted"
+msgstr ""
+
+#: users/views.py:150
+msgid "It is not possible to delete a user because it is being usedss"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"

@@ -1,5 +1,8 @@
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic.detail import SingleObjectMixin
+
 from . forms import LoginUserForm, RegisterUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -127,7 +130,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         return super(UserUpdateView, self).form_valid(form)
 
 
-class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin,  DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
     success_message = _('The user has been successfully deleted')
@@ -136,18 +139,11 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         messages.error(self.request, _("You are not logged in! Please log in."))
         return super(UserDeleteView, self).handle_no_permission()
 
-    def get(self, request, *args, **kwargs):
-
-        user_id_for_delete = kwargs['pk']
-        user_id_auth = self.request.user.id
-
-        if user_id_for_delete != user_id_auth:
+    def form_valid(self, form):
+        if self.object != self.request.user:
             messages.error(self.request, _("You don't have the rights to change another user."))
             return redirect('users_list')
 
-        return render(request, 'users/user_delete.html')
-
-    def form_valid(self, form):
         try:
             return super(UserDeleteView, self).form_valid(form)
         except ProtectedError:
