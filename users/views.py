@@ -18,13 +18,37 @@ class UsersListView(ListView):
     context_object_name = 'users_list'
 
 
-class RegisterUserView(SuccessMessageMixin, CreateView):
-    model = User
-    form_class = RegisterUserForm
-    template_name = 'users/create_user.html'
-    success_url = reverse_lazy('login')
-    success_message = _("The user has been successfully registered")
+class RegisterUserView(CreateView):
 
+    def get(self, request, *args, **kwargs):
+        form = RegisterUserForm()
+        return render(
+            request,
+            template_name='users/create_user.html',
+            context={
+                'form': form,
+                'title': _("Registration")
+            }
+        )
+
+    def post(self, request, *args, **kwargs):
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
+            user.save()
+            messages.success(
+                request,
+                _('The user has been successfully registered'),
+            )
+            return redirect('login')
+        return render(
+            request,
+            template_name='users/create_user.html',
+            context={
+                'form': form
+            }
+        )
 
 class LoginUserView(LoginView):
 
@@ -106,26 +130,25 @@ class UserDeleteView(DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
 
-    # def get(self, request, *args, **kwargs):
-    #     if not request.user.is_authenticated:
-    #         messages.error(self.request, _("You are not logged in! Please log in."))
-    #         return redirect('login')
-    #
-    #     user_id_for_delete = kwargs['pk']
-    #     user_id_auth = self.request.user.id
-    #
-    #     if user_id_for_delete != user_id_auth:
-    #         messages.error(self.request, _("You don't have the rights to change another user."))
-    #         return redirect('users_list')
-    #
-    #     return render(request, 'users/user_delete.html')
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(self.request, _("You are not logged in! Please log in."))
+            return redirect('login')
+
+        user_id_for_delete = kwargs['pk']
+        user_id_auth = self.request.user.id
+
+        if user_id_for_delete != user_id_auth:
+            messages.error(self.request, _("You don't have the rights to change another user."))
+            return redirect('users_list')
+
+        return render(request, 'users/user_delete.html')
 
     def form_valid(self, form):
-        # try:
-        #     user_delete = super(UserDeleteView, self).form_valid(form)
-        messages.success(self.request, _('The user has been successfully deleted'))
-        return super(UserDeleteView, self).form_valid(form)
-        #     return user_delete
-        # except ProtectedError:
-        #     messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
-        #     return redirect('users_list')
+        try:
+            user_delete = super(UserDeleteView, self).form_valid(form)
+            messages.success(self.request, _('The user has been successfully deleted'))
+            return user_delete
+        except ProtectedError:
+            messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+            return redirect('users_list')

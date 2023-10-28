@@ -5,6 +5,7 @@
 {% bootstrap_javascript %}
 {% block content %}
 <div class="container wrapper flex-grow-1">
+
   {% if messages %}
   {% for msg in messages %}
     <div class="alert {{ msg.tags }} alert-dismissible fade show" role="alert">

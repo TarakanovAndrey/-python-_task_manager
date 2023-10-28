@@ -54,7 +54,7 @@
                     <td>{{ task.id }}</td>
                     <td><a href="{% url 'task_info' task.pk %}">{{ task.name }}</a></td>
                     <td>{{ task.status }}</td>
-                    <td>{{ task.author }}</td>
+                    <td>{{ task.author_fullname }}</td>
                     <td>{{ task.executor }}</td>
                     <td>{{ task.created_at }}</td>
                     <td>

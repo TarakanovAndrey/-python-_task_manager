@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from . import forms
 from django.contrib import messages
@@ -7,7 +8,7 @@ from statuses.models import Status
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
-
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 def get_list_statuses(request):
@@ -40,20 +41,29 @@ class StatusCreateView(CreateView):
         return render(request, 'statuses/status_create.html', {'form': form})
 
 
-class StatusUpdateView(UpdateView):
+class StatusUpdateView(LoginRequiredMixin, UpdateView):
     model = Status
     form_class = forms.CreateStatusForm
     success_url = reverse_lazy('statuses_list')
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(StatusUpdateView, self).handle_no_permission()
 
     def form_valid(self, form):
         messages.success(self.request, _('Status successfully updated'))
         return super(StatusUpdateView, self).form_valid(form)
 
 
-class StatusDeleteView(DeleteView):
+class StatusDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = "/login/"
     model = Status
     success_url = reverse_lazy('statuses_list')
     context_object_name = 'status'
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(StatusDeleteView, self).handle_no_permission()
 
     def form_valid(self, form):
         try:
@@ -63,3 +73,5 @@ class StatusDeleteView(DeleteView):
         except ProtectedError:
             messages.error(self.request, _('It is not possible to delete the status because it is being used'))
             return redirect('statuses_list')
+
+

@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 
+
+
+
 urlpatterns = [
     path('statuses/', views.get_list_statuses, name='statuses_list'),
     path('statuses/create/', views.StatusCreateView.as_view(), name='status_create'),

@@ -61,6 +61,7 @@ class TaskCreateView(CreateView):
         if form.is_valid():
             task = form.save(commit=False)
             task.author = self.request.user
+            task.author_fullname = f"{self.request.user.first_name} {self.request.user.last_name}"
             task.save()
             messages.success(request, 'OKKK')
             return redirect('tasks_list')
