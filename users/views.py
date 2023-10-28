@@ -148,9 +148,10 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         try:
-            user_delete = super(UserDeleteView, self).form_valid(form)
+            # user_delete = super(UserDeleteView, self).form_valid(form)
             messages.success(self.request, _('The user has been successfully deleted'))
-            return user_delete
+            # return user_delete
+            return super(UserDeleteView, self).form_valid(form)
         except ProtectedError:
             messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
             return redirect('users_list')

@@ -10,29 +10,33 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
 
 
-def get_tasks_list(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
+class TasksListView(LoginRequiredMixin, View):
 
-    form = forms.TasksFilterForm(request.GET)
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(TasksListView, self).handle_no_permission()
 
-    request_parameters = request.GET
-    user = request.user
-    if any(request_parameters.values()) is False:
-        form = forms.TasksFilterForm()
-        tasks_list = models.Task.objects.all()
-        return render(request, 'tasks/tasks_list.html', {
-            'form': form,
-            'tasks_list': tasks_list
-        })
+    def get(self, request, *args, **kwargs):
 
-    else:
-        tasks_list = get_filtered_tasks(request_parameters, user)
+        form = forms.TasksFilterForm(request.GET)
 
-        return render(request, 'tasks/tasks_list.html', {
-            'form': form,
-            'tasks_list': tasks_list
-        })
+        request_parameters = request.GET
+        user = request.user
+        if any(request_parameters.values()) is False:
+            form = forms.TasksFilterForm()
+            tasks_list = models.Task.objects.all()
+            return render(request, 'tasks/tasks_list.html', {
+                'form': form,
+                'tasks_list': tasks_list
+            })
+
+        else:
+            tasks_list = get_filtered_tasks(request_parameters, user)
+
+            return render(request, 'tasks/tasks_list.html', {
+                'form': form,
+                'tasks_list': tasks_list
+            })
 
 
 class TaskInfoView(LoginRequiredMixin, ListView):
