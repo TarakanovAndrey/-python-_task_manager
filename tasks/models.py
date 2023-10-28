@@ -9,10 +9,10 @@ class Task(models.Model):
     description = models.TextField(max_length=399, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     author_fullname = models.CharField(max_length=150)
-    author = models.ForeignKey(User, on_delete=models.RESTRICT, related_name='author_id', blank=True, null=True)
-    executor = models.ForeignKey(User, on_delete=models.RESTRICT, blank=True, null=True,)
-    status = models.ForeignKey(Status, on_delete=models.RESTRICT, blank=True, null=True)
-    labels = models.ManyToManyField(Label, blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author_id', blank=True, null=True)
+    executor = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True,)
+    status = models.ForeignKey(Status, on_delete=models.PROTECT, blank=True, null=True)
+    labels = models.ManyToManyField(Label)
 
     def __str__(self):
         return self.name
