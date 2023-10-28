@@ -1,6 +1,4 @@
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from . import forms
 from django.contrib import messages
@@ -73,5 +71,3 @@ class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         except ProtectedError:
             messages.error(self.request, _('It is not possible to delete the status because it is being used'))
             return redirect('statuses_list')
-
-

@@ -1,7 +1,6 @@
-from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
-from django.views.generic.detail import SingleObjectMixin
+
 
 from . forms import LoginUserForm, RegisterUserForm
 from django.contrib.auth import authenticate, login, logout
@@ -9,11 +8,11 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.urls import reverse_lazy
 from django.db.models import ProtectedError
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class UsersListView(ListView):
     model = User
@@ -52,6 +51,7 @@ class RegisterUserView(CreateView):
                 'form': form
             }
         )
+
 
 class LoginUserView(LoginView):
 
@@ -101,9 +101,6 @@ class LogoutUserView(LogoutView):
         return redirect('home')
 
 
-
-
-
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = RegisterUserForm
@@ -130,7 +127,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         return super(UserUpdateView, self).form_valid(form)
 
 
-class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin,  DeleteView):
+class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
     # success_message = _('The user has been successfully deleted')
@@ -163,7 +160,6 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin,  DeleteView):
     #     except ProtectedError:
     #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
     #         return redirect('users_list')
-
 
     def form_valid(self, form):
         if self.object != self.request.user:
