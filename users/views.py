@@ -133,19 +133,33 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin,  DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
-    success_message = _('The user has been successfully deleted')
+    # success_message = _('The user has been successfully deleted')
 
     def handle_no_permission(self):
         messages.error(self.request, _("You are not logged in! Please log in."))
         return super(UserDeleteView, self).handle_no_permission()
 
-    def form_valid(self, form):
-        if self.object != self.request.user:
+    # def form_valid(self, form):
+    #     if self.object != self.request.user:
+    #         messages.error(self.request, _("You don't have the rights to change another user."))
+    #         return redirect('users_list')
+    #
+    #     try:
+    #         return super(UserDeleteView, self).form_valid(form)
+    #     except ProtectedError:
+    #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+    #         return redirect('users_list')
+
+    def post(self, request, *args, **kwargs):
+        if kwargs['pk'] != self.request.user.id:
             messages.error(self.request, _("You don't have the rights to change another user."))
             return redirect('users_list')
 
         try:
-            return super(UserDeleteView, self).form_valid(form)
+            user = request.user
+            user.delete()
+            messages.success(self.request, _('The user has been successfully deleted'))
+            return redirect('users_list')
         except ProtectedError:
             messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
             return redirect('users_list')

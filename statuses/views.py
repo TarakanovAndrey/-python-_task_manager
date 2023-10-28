@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from . import forms
@@ -55,11 +56,12 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
         return super(StatusUpdateView, self).form_valid(form)
 
 
-class StatusDeleteView(LoginRequiredMixin, DeleteView):
+class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     login_url = "/login/"
     model = Status
     success_url = reverse_lazy('statuses_list')
     context_object_name = 'status'
+    success_message = _('Status successfully deleted')
 
     def handle_no_permission(self):
         messages.error(self.request, _("You are not logged in! Please log in."))
@@ -67,9 +69,7 @@ class StatusDeleteView(LoginRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         try:
-            status_delete = super(StatusDeleteView, self).form_valid(form)
-            messages.success(self.request, _('Status successfully deleted'))
-            return status_delete
+            return super(StatusDeleteView, self).form_valid(form)
         except ProtectedError:
             messages.error(self.request, _('It is not possible to delete the status because it is being used'))
             return redirect('statuses_list')
