@@ -36,15 +36,10 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
                 <td>
-                    {% if request.user.is_authenticated and request.user.id == user.id %}
+
                     <a href="{% url 'update' user.id %}">{% translate 'Update' %}</a>
                     <br>
                     <a href="{% url 'delete' user.id %}">{% translate 'Delete' %}</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">{% translate 'Update' %}</a>
-                    <br>
-                    <a href="{% url 'login' %}">{% translate 'Delete' %}</a>
-                    {% endif %}
 
                 </td>
             </tr>

@@ -6,6 +6,7 @@ from statuses.models import Status
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
+from django.contrib.auth import user_logged_in, user_logged_out
 
 
 def get_list_statuses(request):
@@ -46,7 +47,6 @@ class StatusUpdateView(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, _('Status successfully updated'))
         return super(StatusUpdateView, self).form_valid(form)
-
 
 class StatusDeleteView(DeleteView):
     model = Status

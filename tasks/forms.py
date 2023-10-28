@@ -20,31 +20,36 @@ class TaskCreateForm(ModelForm):
             'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('Name')
+                    'placeholder': _('Name'),
+                    'required': True,
                 }
             ),
             'description': forms.Textarea(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('Description')
+                    'placeholder': _('Description'),
+                    'required': False,
                 }
             ),
             'status': forms.Select(
                 attrs={
                     'class': 'form-control',
                     'placeholder': _('Description'),
+                    'required': True,
                 }
             ),
             'executor': forms.Select(
                 attrs={
                     'class': 'form-control',
                     'placeholder': _('Executor'),
+                    'required': False,
                 }
             ),
             'labels': forms.SelectMultiple(
                 attrs={
                     'class': 'form-select',
                     'placeholder': _('Labels'),
+                    'required': False,
                 }
             )
         }

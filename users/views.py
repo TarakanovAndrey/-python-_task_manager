@@ -7,6 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.db.models import ProtectedError
+
 
 
 def get_users_list(request):
@@ -106,6 +108,21 @@ class UserUpdateView(UpdateView):
     form_class = RegisterUserForm
     success_url = reverse_lazy('users_list')
 
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(self.request, _("You are not logged in! Please log in."))
+            return redirect('login')
+
+        user_id_for_update = kwargs['pk']
+        user_id_auth = self.request.user.id
+
+        if user_id_for_update != user_id_auth:
+            messages.error(self.request, _("You don't have the rights to change another user."))
+            return redirect('users_list')
+
+        form = RegisterUserForm(instance=request.user)
+        return render(request, 'users/user_update.html', {'form': form})
+
     def form_valid(self, form):
         messages.success(self.request, _('User successfully changed'))
         return super(UserUpdateView, self).form_valid(form)
@@ -115,6 +132,25 @@ class UserDeleteView(DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
 
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(self.request, _("You are not logged in! Please log in."))
+            return redirect('login')
+
+        user_id_for_delete = kwargs['pk']
+        user_id_auth = self.request.user.id
+
+        if user_id_for_delete != user_id_auth:
+            messages.error(self.request, _("You don't have the rights to change another user."))
+            return redirect('users_list')
+
+        return render(request, 'users/user_delete.html')
+
     def form_valid(self, form):
-        messages.success(self.request, _('The user has been successfully deleted'))
-        return super(UserDeleteView, self).form_valid(form)
+        try:
+            user_delete = super(UserDeleteView, self).form_valid(form)
+            messages.success(self.request, _('The user has been successfully deleted'))
+            return user_delete
+        except ProtectedError:
+            messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+            return redirect('users_list')
