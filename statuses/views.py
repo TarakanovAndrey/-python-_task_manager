@@ -5,31 +5,31 @@ from . import forms
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from statuses.models import Status
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def get_list_statuses(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
+class StatusesListView(LoginRequiredMixin, ListView):
+    model = Status
+    template_name = 'statuses/statuses_list.html'
+    context_object_name = 'statuses_list'
 
-    statuses_list = Status.objects.all()
-    return render(
-        request,
-        'statuses/statuses_list.html',
-        context={
-            'statuses_list': statuses_list,
-        },
-    )
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(StatusesListView, self).handle_no_permission()
 
 
-class StatusCreateView(CreateView):
+class StatusCreateView(LoginRequiredMixin, CreateView):
 
     def get(self, request, *args, **kwargs):
         form = forms.CreateStatusForm()
         return render(request, template_name='statuses/status_create.html', context={'form': form})
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(StatusCreateView, self).handle_no_permission()
 
     def post(self, request, *args, **kwargs):
         form = forms.CreateStatusForm(request.POST)

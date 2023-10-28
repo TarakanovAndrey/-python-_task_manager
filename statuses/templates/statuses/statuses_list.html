@@ -38,16 +38,9 @@
                 <td>{{ status.name }}</td>
                 <td>{{ status.created_at }}</td>
                 <td>
-                    {% if request.user.is_authenticated %}
                     <a href="{% url 'status_update' status.id %}">{% translate 'Update' %}</a>
                     <br>
                     <a href="{% url 'status_delete' status.id %}">{% translate 'Delete' %}</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">{% translate 'Update' %}</a>
-                    <br>
-                    <a href="{% url 'login' %}">{% translate 'Delete' %}</a>
-                    {% endif %}
-
                 </td>
             </tr>
         {% endfor %}

@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views import View
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from . import forms
 from django.contrib import messages
 from . import models
 from django.urls import reverse_lazy
 from tasks.support_functions import get_filtered_tasks
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.translation import gettext_lazy as _
 
 
 def get_tasks_list(request):
@@ -32,22 +35,28 @@ def get_tasks_list(request):
         })
 
 
-def get_task_info(request, pk):
-    task = models.Task.objects.get(pk=pk)
-    task_datas = {
-        'task_pk': task.pk,
-        'task_name': task.task_name,
-        'task_description': task.description,
-        'task_author': task.author,
-        'task_executor': task.executor,
-        'task_status': task.status,
-        'task_created': task.created_at,
-        'task_labels': task.labels.all(),
-    }
+class TaskInfoView(LoginRequiredMixin, ListView):
 
-    return render(request,
-                  'tasks/task_info.html',
-                  {'task_datas': task_datas})
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(TaskInfoView, self).handle_no_permission()
+
+    def get(self, request, *args, **kwargs):
+        task = models.Task.objects.get(pk=kwargs['pk'])
+        task_datas = {
+            'task_pk': task.pk,
+            'task_name': task.name,
+            'task_description': task.description,
+            'task_author': task.author_fullname,
+            'task_executor': task.executor,
+            'task_status': task.status,
+            'task_created': task.created_at,
+            'task_labels': task.labels.all(),
+        }
+
+        return render(request,
+                      'tasks/task_info.html',
+                      {'task_datas': task_datas})
 
 
 class TaskCreateView(CreateView):
