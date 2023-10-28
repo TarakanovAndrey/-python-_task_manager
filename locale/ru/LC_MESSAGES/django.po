@@ -143,7 +143,7 @@ msgstr "Вы залогинены"
 
 #: statuses/views.py:39
 msgid "Status successfully created"
-msgstr "Статус успешно зарегистрирован"
+msgstr "Статус успешно создан"
 
 #: statuses/views.py:54
 msgid "Status successfully updated"
