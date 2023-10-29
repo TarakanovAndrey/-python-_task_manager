@@ -57,22 +57,6 @@ class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-    # def get(self, request, *args, **kwargs):
-    #     form = forms.TaskCreateForm
-    #     return render(request, 'tasks/task_create.html', {'form': form})
-    #
-    # def post(self, request, *args, **kwargs):
-    #     form = forms.TaskCreateForm(request.POST)
-    #     if form.is_valid():
-    #         task = form.save(commit=False)
-    #
-    #         task.author = self.request.user
-    #         task.executor = User.objects.get(id=task.executor.pk) # проблема, если исполнителя не выбрали
-    #
-    #         task.save()
-    #         messages.success(request, _('The task was successfully created'))
-    #         return redirect('tasks_list')
-    #     return render(request, 'tasks/task_create.html', {'form': form})
 
 
 class TaskUpdateView(UpdateView):
