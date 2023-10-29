@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
@@ -47,24 +48,28 @@ class TaskInfoView(LoginRequiredMixin, DetailView):
 
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    template_name = 'tasks/task_create.html'
+    form_class = forms.TaskCreateForm
+    success_url = reverse_lazy('tasks_list')
+    success_message = _('The task was successfully created')
 
-    def get(self, request, *args, **kwargs):
-        form = forms.TaskCreateForm
-        return render(request, 'tasks/task_create.html', {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = forms.TaskCreateForm(request.POST)
-        if form.is_valid():
-            task = form.save(commit=False)
-
-            task.author = self.request.user
-            task.executor = User.objects.get(id=task.executor.pk) # проблема, если исполнителя не выбрали
-
-            task.save()
-            messages.success(request, _('The task was successfully created'))
-            return redirect('tasks_list')
-        return render(request, 'tasks/task_create.html', {'form': form})
+    # def get(self, request, *args, **kwargs):
+    #     form = forms.TaskCreateForm
+    #     return render(request, 'tasks/task_create.html', {'form': form})
+    #
+    # def post(self, request, *args, **kwargs):
+    #     form = forms.TaskCreateForm(request.POST)
+    #     if form.is_valid():
+    #         task = form.save(commit=False)
+    #
+    #         task.author = self.request.user
+    #         task.executor = User.objects.get(id=task.executor.pk) # проблема, если исполнителя не выбрали
+    #
+    #         task.save()
+    #         messages.success(request, _('The task was successfully created'))
+    #         return redirect('tasks_list')
+    #     return render(request, 'tasks/task_create.html', {'form': form})
 
 
 class TaskUpdateView(UpdateView):
