@@ -87,6 +87,7 @@ class TasksFilterForm(ModelForm):
             'labels': forms.Select(
                 attrs={
                     'class': 'form-select',
+                    'name': 'label'
                 }
             ),
         }
@@ -96,3 +97,4 @@ class TasksFilterForm(ModelForm):
         self.fields['labels'].empty_label = '---------'
         users = User.objects.all()
         self.fields['executor'].choices = [("", "---------"), ] + [(user.pk, user.get_full_name()) for user in users]
+

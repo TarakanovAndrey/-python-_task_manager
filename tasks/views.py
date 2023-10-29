@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from tasks.support_functions import get_filtered_tasks
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 
 
 class TasksListView(LoginRequiredMixin, View):
@@ -73,8 +74,13 @@ class TaskCreateView(CreateView):
         form = forms.TaskCreateForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
+
             task.author = self.request.user
             task.author_fullname = f"{self.request.user.first_name} {self.request.user.last_name}"
+
+            executor = User.objects.get(id=task.executor.id)
+            task.executor_fullname = f"{executor.first_name} {executor.last_name}"
+
             task.save()
             messages.success(request, _('The task was successfully created'))
             return redirect('tasks_list')
