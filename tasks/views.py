@@ -53,7 +53,7 @@ class TaskInfoView(LoginRequiredMixin, ListView):
             'task_name': task.name,
             'task_description': task.description,
             'task_author': task.author_fullname,
-            'task_executor': task.executor,
+            'task_executor': task.executor_fullname,
             'task_status': task.status,
             'task_created': task.created_at,
             'task_labels': task.labels.all(),
