@@ -227,8 +227,6 @@ msgid "Executor"
 msgstr "Исполнитель"
 
 #: tasks/forms.py:74
-#, fuzzy
-#| msgid "Labels"
 msgid "Label"
 msgstr "Метка"
 

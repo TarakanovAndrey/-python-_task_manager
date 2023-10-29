@@ -87,7 +87,6 @@ class TasksFilterForm(ModelForm):
             'labels': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'name': 'label'
                 }
             ),
         }
