@@ -6,10 +6,12 @@ from django.contrib.auth.models import User
 
 
 class TaskCreateForm(ModelForm):
+
     def __init__(self, *args, **kwargs):
         super(TaskCreateForm, self).__init__(*args, **kwargs)
         users = User.objects.all()
-        self.fields['executor'].choices = [(user.pk, user.get_full_name()) for user in users]
+        self.fields['executor'].choices = [("", "---------"),] + [(user.pk, user.get_full_name()) for user in users]
+        # self.fields['executor']. = '---------'
 
     class Meta:
         model = models.Task
@@ -58,6 +60,8 @@ class TaskCreateForm(ModelForm):
                 }
             )
         }
+
+
 
 
 class TasksFilterForm(ModelForm):
