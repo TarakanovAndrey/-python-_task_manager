@@ -2,9 +2,14 @@ from django import forms
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
+from django.contrib.auth.models import User
 
 
 class TaskCreateForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(TaskCreateForm, self).__init__(*args, **kwargs)
+        users = User.objects.all()
+        self.fields['executor'].choices = [(user.pk, user.get_full_name()) for user in users]
 
     class Meta:
         model = models.Task

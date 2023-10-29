@@ -161,6 +161,7 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 #             messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
 #             return redirect('users_list')
 #
+
     def form_valid(self, form):
         if self.object != self.request.user:
             messages.error(self.request, _("You don't have the rights to change another user."))
