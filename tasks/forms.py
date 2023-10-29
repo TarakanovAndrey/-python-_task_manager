@@ -40,7 +40,7 @@ class TaskCreateForm(ModelForm):
             'status': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Status'),
+                    # 'placeholder': _('Status'),
                     'required': True,
                 }
             ),
