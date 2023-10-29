@@ -11,7 +11,6 @@ class TaskCreateForm(ModelForm):
         super(TaskCreateForm, self).__init__(*args, **kwargs)
         users = User.objects.all()
         self.fields['executor'].choices = [("", "---------"),] + [(user.pk, user.get_full_name()) for user in users]
-        # self.fields['executor']. = '---------'
 
     class Meta:
         model = models.Task
@@ -95,3 +94,5 @@ class TasksFilterForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(TasksFilterForm, self).__init__(*args, **kwargs)
         self.fields['labels'].empty_label = '---------'
+        users = User.objects.all()
+        self.fields['executor'].choices = [("", "---------"), ] + [(user.pk, user.get_full_name()) for user in users]
