@@ -136,16 +136,17 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         messages.error(self.request, _("You are not logged in! Please log in."))
         return super(UserDeleteView, self).handle_no_permission()
 #
-#     # def form_valid(self, form):
-#     #     if self.object != self.request.user:
-#     #         messages.error(self.request, _("You don't have the rights to change another user."))
-#     #         return redirect('users_list')
-#     #
-#     #     try:
-#     #         return super(UserDeleteView, self).form_valid(form)
-#     #     except ProtectedError:
-#     #         messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
-#     #         return redirect('users_list')
+    # def form_valid(self, form):
+    #     if self.object != self.request.user:
+    #         messages.error(self.request, _("You don't have the rights to change another user."))
+    #         return redirect('users_list')
+    #
+    #     try:
+    #         return super(UserDeleteView, self).form_valid(form)
+    #     except ProtectedError:
+    #         messages.error(self.request, _("It is not possible to "
+    #                                        "delete a user because it is being usedss"))
+    #         return redirect('users_list')
 #
 #     def post(self, request, *args, **kwargs):
 #         if kwargs['pk'] != self.request.user.id:
@@ -158,7 +159,8 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 #             messages.success(self.request, _('The user has been successfully deleted'))
 #             return redirect('users_list')
 #         except ProtectedError:
-#             messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+#             messages.error(self.request, _("It is not possible to "
+#                                            "delete a user because it is being usedss"))
 #             return redirect('users_list')
 #
 
@@ -170,7 +172,8 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         try:
             self.object.delete()
         except ProtectedError:
-            messages.error(self.request, _("It is not possible to delete a user because it is being usedss"))
+            messages.error(self.request, _("It is not possible to"
+                                           " delete a user because it is being usedss"))
             return redirect('users_list')
 
         messages.success(self.request, _('The user has been successfully deleted'))

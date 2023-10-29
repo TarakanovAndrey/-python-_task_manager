@@ -69,5 +69,6 @@ class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         try:
             return super(StatusDeleteView, self).form_valid(form)
         except ProtectedError:
-            messages.error(self.request, _('It is not possible to delete the status because it is being used'))
+            messages.error(self.request, _('It is not possible to delete'
+                                           ' the status because it is being used'))
             return redirect('statuses_list')
