@@ -67,10 +67,7 @@ class TaskCreateView(CreateView):
             task = form.save(commit=False)
 
             task.author = self.request.user
-            task.author_fullname = f"{self.request.user.first_name} {self.request.user.last_name}"
-
-            executor = User.objects.get(id=task.executor.id)
-            task.executor_fullname = f"{executor.first_name} {executor.last_name}"
+            task.executor = User.objects.get(id=task.executor.pk)
 
             task.save()
             messages.success(request, _('The task was successfully created'))
