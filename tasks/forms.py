@@ -44,7 +44,7 @@ class TaskCreateForm(ModelForm):
                     'placeholder': _('Executor'),
                     'required': False,
                 }
-            ),
+            ),  # тесты не проходят
             'labels': forms.SelectMultiple(
                 attrs={
                     'class': 'form-select',
