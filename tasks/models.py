@@ -12,7 +12,7 @@ class Task(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author_id', blank=True, null=True)
     executor = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True,)
     status = models.ForeignKey(Status, on_delete=models.PROTECT, blank=True, null=True)
-    labels = models.ManyToManyField(Label)
+    labels = models.ManyToManyField(Label, blank=True)
 
     def __str__(self):
         return self.name

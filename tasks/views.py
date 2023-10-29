@@ -76,7 +76,7 @@ class TaskCreateView(CreateView):
             task.author = self.request.user
             task.author_fullname = f"{self.request.user.first_name} {self.request.user.last_name}"
             task.save()
-            messages.success(request, 'OKKK')
+            messages.success(request, _('The task was successfully created'))
             return redirect('tasks_list')
         return render(request, 'tasks/task_create.html', {'form': form})
 
@@ -87,7 +87,7 @@ class TaskUpdateView(UpdateView):
     success_url = reverse_lazy('tasks_list')
 
     def form_valid(self, form):
-        messages.success(self.request, 'OK')
+        messages.success(self.request, _('The task has been successfully changed'))
         return super(TaskUpdateView, self).form_valid(form)
 
 
@@ -96,5 +96,5 @@ class TaskDeleteView(DeleteView):
     success_url = reverse_lazy('tasks_list')
 
     def form_valid(self, form):
-        messages.success(self.request, 'OK')
+        messages.success(self.request, _('The task was successfully deleted'))
         return super(TaskDeleteView, self).form_valid(form)

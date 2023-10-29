@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-29 13:01+0300\n"
+"POT-Creation-Date: 2023-10-29 15:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: labels/templates/labels/labels_list.html:19
 #: task_manager/templates/task_manager/menu_user_login.html:17
-#: tasks/forms.py:17 tasks/forms.py:51 tasks/forms.py:66 tasks/forms.py:84
+#: tasks/forms.py:17 tasks/forms.py:52 tasks/forms.py:66
 #: tasks/templates/tasks/task_info.html:43
 msgid "Labels"
 msgstr ""
@@ -212,17 +212,17 @@ msgstr ""
 msgid "Registation"
 msgstr ""
 
-#: tasks/forms.py:14 tasks/forms.py:30 tasks/forms.py:37 tasks/forms.py:72
+#: tasks/forms.py:14 tasks/forms.py:30
 msgid "Description"
 msgstr ""
 
-#: tasks/forms.py:15 tasks/forms.py:64 tasks/templates/tasks/task_info.html:32
+#: tasks/forms.py:15 tasks/forms.py:37 tasks/forms.py:64
+#: tasks/templates/tasks/task_info.html:32
 #: tasks/templates/tasks/tasks_list.html:41
 msgid "Status"
 msgstr ""
 
-#: tasks/forms.py:16 tasks/forms.py:44 tasks/forms.py:65 tasks/forms.py:78
-#: tasks/templates/tasks/task_info.html:27
+#: tasks/forms.py:16 tasks/forms.py:65 tasks/templates/tasks/task_info.html:27
 #: tasks/templates/tasks/tasks_list.html:43
 msgid "Executor"
 msgstr ""
@@ -258,6 +258,18 @@ msgstr ""
 
 #: tasks/templates/tasks/tasks_list.html:30
 msgid "Show"
+msgstr ""
+
+#: tasks/views.py:79
+msgid "The task was successfully created"
+msgstr ""
+
+#: tasks/views.py:90
+msgid "The task has been successfully changed"
+msgstr ""
+
+#: tasks/views.py:99
+msgid "The task was successfully deleted"
 msgstr ""
 
 #: users/forms.py:10 users/forms.py:14 users/forms.py:34 users/forms.py:38
