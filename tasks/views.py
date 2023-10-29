@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from . import forms
 from django.contrib import messages
 from . import models
@@ -40,19 +40,11 @@ class TasksListView(LoginRequiredMixin, View):
             })
 
 
-class TaskInfoView(LoginRequiredMixin, ListView):
-    # context_object_name = 'tasks'
+class TaskInfoView(LoginRequiredMixin, DetailView):
+    template_name = 'tasks/task_info.html'
+    model = models.Task
+    context_object_name = 'task'
 
-    def handle_no_permission(self):
-        messages.error(self.request, _("You are not logged in! Please log in."))
-        return super(TaskInfoView, self).handle_no_permission()
-
-    def get(self, request, *args, **kwargs):
-        task = models.Task.objects.get(pk=kwargs['pk'])
-        return render(request,
-                      'tasks/task_info.html',
-                      {'task': task}
-                      )
 
 
 class TaskCreateView(CreateView):
@@ -67,7 +59,7 @@ class TaskCreateView(CreateView):
             task = form.save(commit=False)
 
             task.author = self.request.user
-            task.executor = User.objects.get(id=task.executor.pk)
+            task.executor = User.objects.get(id=task.executor.pk) # проблема, если исполнителя не выбрали
 
             task.save()
             messages.success(request, _('The task was successfully created'))
