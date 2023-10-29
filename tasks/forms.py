@@ -33,14 +33,14 @@ class TaskCreateForm(ModelForm):
             ),
             'status': forms.Select(
                 attrs={
-                    'class': 'form-control',
+                    'class': 'form-select',
                     'placeholder': _('Description'),
                     'required': True,
                 }
             ),
             'executor': forms.Select(
                 attrs={
-                    'class': 'form-control',
+                    'class': 'form-select',
                     'placeholder': _('Executor'),
                     'required': False,
                 }
@@ -88,7 +88,4 @@ class TasksFilterForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(TasksFilterForm, self).__init__(*args, **kwargs)
-        self.fields['status'].required = False
-        self.fields['executor'].required = False
-        self.fields['labels'].required = False
         self.fields['labels'].empty_label = '---------'
