@@ -71,7 +71,7 @@ class TasksFilterForm(ModelForm):
         labels = {
             'status': _('Status'),
             'executor': _('Executor'),
-            'labels': _('Labels'),
+            'labels': _('Label'),
         }
         widgets = {
             'status': forms.Select(
