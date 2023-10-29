@@ -250,8 +250,6 @@ msgid "Author"
 msgstr "Автор"
 
 #: tasks/templates/tasks/task_info.html:43
-#, fuzzy
-#| msgid "Labels"
 msgid "Labels:"
 msgstr "Метки:"
 
