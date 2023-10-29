@@ -34,21 +34,18 @@ class TaskCreateForm(ModelForm):
             'status': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Description'),
                     'required': True,
                 }
             ),
             'executor': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Executor'),
                     'required': False,
                 }
             ),
             'labels': forms.SelectMultiple(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Labels'),
                     'required': False,
                 }
             )
@@ -69,19 +66,16 @@ class TasksFilterForm(ModelForm):
             'status': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Description'),
                 }
             ),
             'executor': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Executor'),
                 }
             ),
             'labels': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Labels'),
                 }
             ),
         }
