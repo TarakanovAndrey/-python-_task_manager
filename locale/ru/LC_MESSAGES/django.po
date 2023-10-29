@@ -147,7 +147,7 @@ msgstr "Статус успешно создан"
 
 #: statuses/views.py:54
 msgid "Status successfully updated"
-msgstr "Статус успешно обновлен"
+msgstr "Статус успешно изменен"
 
 #: statuses/views.py:71
 msgid "Status successfully deleted"
