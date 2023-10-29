@@ -1,7 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from . import forms
 from django.contrib import messages
 from . import models
@@ -9,7 +9,6 @@ from django.urls import reverse_lazy
 from tasks.support_functions import get_filtered_tasks
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import User
 
 
 class TasksListView(LoginRequiredMixin, View):
@@ -45,7 +44,6 @@ class TaskInfoView(LoginRequiredMixin, DetailView):
     template_name = 'tasks/task_info.html'
     model = models.Task
     context_object_name = 'task'
-
 
 
 class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
