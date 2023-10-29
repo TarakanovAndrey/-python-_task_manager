@@ -49,6 +49,7 @@ class TaskCreateForm(ModelForm):
                 attrs={
                     'class': 'form-select',
                     'required': False,
+                    'placeholder': _('Labels'),
                 }
             )
         }
