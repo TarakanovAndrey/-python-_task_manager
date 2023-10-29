@@ -41,7 +41,7 @@ class TaskCreateForm(ModelForm):
             'executor': forms.Select(
                 attrs={
                     'class': 'form-select',
-                    'placeholder': _('Executor'),
+                    # 'placeholder': _('Executor'),
                     'required': False,
                 }
             ),  # тесты не проходят
