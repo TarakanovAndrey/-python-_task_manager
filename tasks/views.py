@@ -41,6 +41,7 @@ class TasksListView(LoginRequiredMixin, View):
 
 
 class TaskInfoView(LoginRequiredMixin, ListView):
+    # context_object_name = 'tasks'
 
     def handle_no_permission(self):
         messages.error(self.request, _("You are not logged in! Please log in."))
@@ -48,20 +49,10 @@ class TaskInfoView(LoginRequiredMixin, ListView):
 
     def get(self, request, *args, **kwargs):
         task = models.Task.objects.get(pk=kwargs['pk'])
-        task_datas = {
-            'task_pk': task.pk,
-            'task_name': task.name,
-            'task_description': task.description,
-            'task_author': task.author_fullname,
-            'task_executor': task.executor_fullname,
-            'task_status': task.status,
-            'task_created': task.created_at,
-            'task_labels': task.labels.all(),
-        }
-
         return render(request,
                       'tasks/task_info.html',
-                      {'task_datas': task_datas})
+                      {'task': task}
+                      )
 
 
 class TaskCreateView(CreateView):
