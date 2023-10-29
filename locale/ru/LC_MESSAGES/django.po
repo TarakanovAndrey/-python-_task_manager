@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-28 21:47+0300\n"
+"POT-Creation-Date: 2023-10-29 12:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: labels/forms.py:12 labels/forms.py:17
-#: labels/templates/labels/labels_list.html:15 statuses/forms.py:12
+#: labels/templates/labels/labels_list.html:25 statuses/forms.py:12
 #: statuses/forms.py:17 statuses/templates/statuses/statuses_list.html:27
 #: tasks/forms.py:13 tasks/forms.py:23 tasks/templates/tasks/tasks_list.html:40
 msgid "Name"
@@ -48,7 +48,7 @@ msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: labels/templates/labels/label_create.html:10
-#: labels/templates/labels/labels_list.html:10
+#: labels/templates/labels/labels_list.html:20
 msgid "Create label"
 msgstr "Создать метку"
 
@@ -70,21 +70,21 @@ msgstr "Изменение метки"
 msgid "Change"
 msgstr "Изменить"
 
-#: labels/templates/labels/labels_list.html:9
+#: labels/templates/labels/labels_list.html:19
 #: task_manager/templates/task_manager/menu_user_login.html:17
 #: tasks/forms.py:17 tasks/forms.py:51 tasks/forms.py:66 tasks/forms.py:84
 #: tasks/templates/tasks/task_info.html:43
 msgid "Labels"
 msgstr "Метки"
 
-#: labels/templates/labels/labels_list.html:14
+#: labels/templates/labels/labels_list.html:24
 #: statuses/templates/statuses/statuses_list.html:26
 #: tasks/templates/tasks/tasks_list.html:39
 #: users/templates/users/users_list.html:22
 msgid "ID"
 msgstr ""
 
-#: labels/templates/labels/labels_list.html:16
+#: labels/templates/labels/labels_list.html:26
 #: statuses/templates/statuses/statuses_list.html:28
 #: tasks/templates/tasks/task_info.html:37
 #: tasks/templates/tasks/tasks_list.html:44
@@ -92,8 +92,8 @@ msgstr ""
 msgid "Created at"
 msgstr "Дата создания"
 
-#: labels/templates/labels/labels_list.html:30
-#: labels/templates/labels/labels_list.html:34
+#: labels/templates/labels/labels_list.html:40
+#: labels/templates/labels/labels_list.html:44
 #: statuses/templates/statuses/statuses_list.html:41
 #: tasks/templates/tasks/tasks_list.html:62
 #: tasks/templates/tasks/tasks_list.html:66
@@ -101,8 +101,8 @@ msgstr "Дата создания"
 msgid "Update"
 msgstr "Изменить"
 
-#: labels/templates/labels/labels_list.html:32
-#: labels/templates/labels/labels_list.html:36
+#: labels/templates/labels/labels_list.html:42
+#: labels/templates/labels/labels_list.html:46
 #: statuses/templates/statuses/statuses_list.html:43
 #: tasks/templates/tasks/task_info.html:56
 #: tasks/templates/tasks/tasks_list.html:64
@@ -114,6 +114,14 @@ msgstr "Удалить"
 #: labels/views.py:38
 msgid "OK"
 msgstr ""
+
+#: labels/views.py:52
+msgid "Label changed successfully"
+msgstr "Метка успешно изменена"
+
+#: labels/views.py:62
+msgid "The label was successfully deleted"
+msgstr "Метка успешно удалена"
 
 #: statuses/templates/statuses/status_confirm_delete.html:9
 msgid "Deleting a status"
@@ -133,35 +141,33 @@ msgstr "Изменение статуса"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: statuses/views.py:20 statuses/views.py:31 statuses/views.py:50
-#: statuses/views.py:65 tasks/views.py:16 tasks/views.py:45 users/views.py:113
-#: users/views.py:139
-#, fuzzy
-#| msgid "You are logged in"
+#: statuses/views.py:19 statuses/views.py:30 statuses/views.py:49
+#: statuses/views.py:65 tasks/views.py:16 tasks/views.py:45 users/views.py:110
+#: users/views.py:136
 msgid "You are not logged in! Please log in."
-msgstr "Вы залогинены"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: statuses/views.py:39
+#: statuses/views.py:38
 msgid "Status successfully created"
 msgstr "Статус успешно создан"
 
-#: statuses/views.py:54
+#: statuses/views.py:53
 msgid "Status successfully updated"
 msgstr "Статус успешно изменен"
 
-#: statuses/views.py:71
+#: statuses/views.py:62
 msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
-#: statuses/views.py:74
+#: statuses/views.py:72
 msgid "It is not possible to delete the status because it is being used"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/settings.py:172
+#: task_manager/settings.py:170
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:173
+#: task_manager/settings.py:171
 msgid "English"
 msgstr ""
 
@@ -310,7 +316,7 @@ msgstr "Удаление пользователя"
 msgid "Changing the user"
 msgstr "Изменение пользователя"
 
-#: users/templates/users/create_user.html:13 users/views.py:33
+#: users/templates/users/create_user.html:13 users/views.py:32
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -330,7 +336,7 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: users/views.py:45
+#: users/views.py:44
 msgid "The user has been successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
@@ -350,18 +356,18 @@ msgstr ""
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: users/views.py:122 users/views.py:144
+#: users/views.py:119 users/views.py:166
 msgid "You don't have the rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: users/views.py:129
+#: users/views.py:126
 msgid "User successfully changed"
 msgstr "Пользователь успешно изменен"
 
-#: users/views.py:136
-msgid "The user has been successfully deleted"
-msgstr "Пользователь успешно удален"
-
-#: users/views.py:150
+#: users/views.py:172
 msgid "It is not possible to delete a user because it is being usedss"
 msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#: users/views.py:175
+msgid "The user has been successfully deleted"
+msgstr "Пользователь успешно удален"

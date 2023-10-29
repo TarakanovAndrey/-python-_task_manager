@@ -49,7 +49,7 @@ class LabelUpdateView(UpdateView):
     success_url = reverse_lazy('labels_list')
 
     def form_valid(self, form):
-        messages.success(self.request, 'OK')
+        messages.success(self.request, _('Label changed successfully'))
         return super(LabelUpdateView, self).form_valid(form)
 
 
@@ -59,5 +59,5 @@ class LabelDeleteView(DeleteView):
     context_object_name = 'label'
 
     def form_valid(self, form):
-        messages.success(self.request, 'OK')
+        messages.success(self.request, _('The label was successfully deleted'))
         return super(LabelDeleteView, self).form_valid(form)
