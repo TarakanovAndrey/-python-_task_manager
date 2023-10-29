@@ -35,7 +35,7 @@ class LabelCreateView(CreateView):
         if form.is_valid():
             label = form.save()
             label.save()
-            messages.success(request, _('OK'))
+            messages.success(request, _('The label was created successfully'))
             return redirect('labels_list')
         return render(
             request,
