@@ -221,7 +221,7 @@ msgstr "Описание"
 #: tasks/forms.py:15 tasks/forms.py:64 tasks/templates/tasks/task_info.html:32
 #: tasks/templates/tasks/tasks_list.html:41
 msgid "Status"
-msgstr "Статуc"
+msgstr "Статус"
 
 #: tasks/forms.py:16 tasks/forms.py:44 tasks/forms.py:65 tasks/forms.py:78
 #: tasks/templates/tasks/task_info.html:27
