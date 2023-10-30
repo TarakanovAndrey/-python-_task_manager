@@ -3,22 +3,19 @@ from . import forms
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from labels.models import Label
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def get_list_labels(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
+class LabelsListView(LoginRequiredMixin, ListView):
+    model = Label
+    template_name = 'labels/labels_list.html'
+    context_object_name = 'labels_list'
 
-    labels_list = Label.objects.all()
-    return render(
-        request,
-        'labels/labels_list.html',
-        context={
-            'labels_list': labels_list,
-        },
-    )
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(LabelsListView, self).handle_no_permission()
 
 
 class LabelCreateView(CreateView):
