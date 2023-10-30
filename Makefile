@@ -20,7 +20,9 @@ lint:
 	poetry run flake8 .
 
 test-coverage:
-		poetry run coverage run --cov=. --cov-report xml manage.py test
+			@poetry run coverage run --source='.' manage.py test
+			@poetry run coverage report
+			@poetry run coverage xml
 
 
 install:
