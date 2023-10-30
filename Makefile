@@ -14,7 +14,7 @@ migrate:
 	python manage.py migrate
 
 test:
-	poetry run python ./manage.py test
+	poetry run python ./manage.py test --verbosity 2
 
 lint:
 	poetry run flake8 .
