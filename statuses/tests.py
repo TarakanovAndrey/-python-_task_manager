@@ -2,7 +2,7 @@ from django.test import TestCase
 from . models import Status
 
 
-class UserTestCase(TestCase):
+class StatusTestCase(TestCase):
     def setUp(self):
         Status.objects.create(name="Status1")
 
@@ -10,12 +10,12 @@ class UserTestCase(TestCase):
         status = Status.objects.get(name='Status1')
         self.assertEqual(status.name, 'Status1')
 
-    def test_user_update(self):
+    def test_status_update(self):
         status = Status.objects.get(name='Status1')
         status.status_name = 'Status2'
         self.assertEqual(status.status_name, 'Status2')
 
-    def test_user_delete(self):
+    def test_status_delete(self):
         status = Status.objects.get(name='Status1')
         status.delete()
         self.assertNotIn(status, Status.objects.all())
