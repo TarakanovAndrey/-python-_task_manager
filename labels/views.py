@@ -18,7 +18,11 @@ class LabelsListView(LoginRequiredMixin, ListView):
         return super(LabelsListView, self).handle_no_permission()
 
 
-class LabelCreateView(CreateView):
+class LabelCreateView(LoginRequiredMixin, CreateView):
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(LabelCreateView, self).handle_no_permission()
 
     def get(self, request, *args, **kwargs):
         form = forms.CreateLabelForm()
@@ -40,20 +44,28 @@ class LabelCreateView(CreateView):
             {'form': form})
 
 
-class LabelUpdateView(UpdateView):
+class LabelUpdateView(LoginRequiredMixin, UpdateView):
     model = Label
     form_class = forms.CreateLabelForm
     success_url = reverse_lazy('labels_list')
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(LabelUpdateView, self).handle_no_permission()
 
     def form_valid(self, form):
         messages.success(self.request, _('Label changed successfully'))
         return super(LabelUpdateView, self).form_valid(form)
 
 
-class LabelDeleteView(DeleteView):
+class LabelDeleteView(LoginRequiredMixin, DeleteView):
     model = Label
     success_url = reverse_lazy('labels_list')
     context_object_name = 'label'
+
+    def handle_no_permission(self):
+        messages.error(self.request, _("You are not logged in! Please log in."))
+        return super(LabelDeleteView, self).handle_no_permission()
 
     def form_valid(self, form):
         messages.success(self.request, _('The label was successfully deleted'))
