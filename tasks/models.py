@@ -11,7 +11,12 @@ class Task(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author', blank=True)
     executor = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True,)
     status = models.ForeignKey(Status, on_delete=models.PROTECT, blank=True, null=True)
-    labels = models.ManyToManyField(Label, blank=True)
+    labels = models.ManyToManyField(Label, blank=True, through='TaskLabel')
 
     def __str__(self):
         return self.name
+
+
+class TaskLabel(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)

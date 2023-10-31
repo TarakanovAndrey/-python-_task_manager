@@ -149,4 +149,3 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
         messages.success(self.request, _('The user has been successfully deleted'))
         return redirect(self.get_success_url())
-
