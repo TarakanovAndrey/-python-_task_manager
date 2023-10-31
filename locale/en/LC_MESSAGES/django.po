@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-31 11:01+0300\n"
+"POT-Creation-Date: 2023-10-31 11:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,10 +108,10 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: labels/views.py:19 labels/views.py:26 labels/views.py:55 labels/views.py:71
+#: labels/views.py:19 labels/views.py:26 labels/views.py:55 labels/views.py:69
 #: statuses/views.py:19 statuses/views.py:30 statuses/views.py:49
-#: statuses/views.py:65 tasks/views.py:17 tasks/views.py:49 tasks/views.py:60
-#: tasks/views.py:74 tasks/views.py:87 users/views.py:110 users/views.py:135
+#: statuses/views.py:63 tasks/views.py:17 tasks/views.py:49 tasks/views.py:60
+#: tasks/views.py:74 tasks/views.py:87 users/views.py:110 users/views.py:136
 msgid "You are not logged in! Please log in."
 msgstr ""
 
@@ -123,11 +123,11 @@ msgstr ""
 msgid "Label changed successfully"
 msgstr ""
 
-#: labels/views.py:67
+#: labels/views.py:66
 msgid "The label was successfully deleted"
 msgstr ""
 
-#: labels/views.py:80
+#: labels/views.py:76
 msgid "It is not possible to delete the label because it is being used"
 msgstr ""
 
@@ -157,11 +157,11 @@ msgstr ""
 msgid "Status successfully updated"
 msgstr ""
 
-#: statuses/views.py:62
+#: statuses/views.py:60
 msgid "Status successfully deleted"
 msgstr ""
 
-#: statuses/views.py:72
+#: statuses/views.py:70
 msgid "It is not possible to delete the status because it is being used"
 msgstr ""
 
@@ -279,7 +279,11 @@ msgstr ""
 msgid "The task has been successfully changed"
 msgstr ""
 
-#: tasks/views.py:91
+#: tasks/views.py:92
+msgid "A task can only be deleted by its author"
+msgstr ""
+
+#: tasks/views.py:95
 msgid "The task was successfully deleted"
 msgstr ""
 
@@ -373,7 +377,7 @@ msgstr ""
 msgid "You are logged out"
 msgstr ""
 
-#: users/views.py:119 users/views.py:140
+#: users/views.py:119 users/views.py:141
 msgid "You don't have the rights to change another user."
 msgstr ""
 
@@ -381,12 +385,12 @@ msgstr ""
 msgid "User successfully changed"
 msgstr ""
 
-#: users/views.py:146
-msgid "It is not possible to delete a user because it is being usedss"
+#: users/views.py:133
+msgid "The user has been successfully deleted"
 msgstr ""
 
-#: users/views.py:150
-msgid "The user has been successfully deleted"
+#: users/views.py:147
+msgid "It is not possible to delete a user because it is being usedss"
 msgstr ""
 
 #~ msgid "Менеджер задач Hexlet"

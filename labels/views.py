@@ -63,7 +63,6 @@ class LabelUpdateView(LoginRequiredMixin, UpdateView):
 class LabelDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Label
     success_url = reverse_lazy('labels_list')
-    context_object_name = 'label'
     success_message = _('The label was successfully deleted')
 
     def handle_no_permission(self):

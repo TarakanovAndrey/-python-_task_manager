@@ -1,5 +1,5 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from . import forms
@@ -88,5 +88,9 @@ class TaskDeleteView(LoginRequiredMixin, DeleteView):
         return super(TaskDeleteView, self).handle_no_permission()
 
     def form_valid(self, form):
+        if self.object.author != self.request.user:
+            messages.error(self.request, _("A task can only be deleted by its author"))
+            return redirect('tasks_list')
+
         messages.success(self.request, _('The task was successfully deleted'))
         return super(TaskDeleteView, self).form_valid(form)
