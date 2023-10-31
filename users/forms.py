@@ -5,28 +5,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-class LoginUserForm(forms.Form):
-    username = forms.CharField(
-        label=_('Username'),
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Username'),
-            }
-        ),
-        max_length=150,
-    )
-    password = forms.CharField(
-        label=_('Password'),
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Password'),
-            }
-        ),
-    )
-
-
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(
         help_text=_('Required field. No more than 150 characters. '
