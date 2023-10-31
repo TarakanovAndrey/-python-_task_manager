@@ -55,10 +55,8 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
-    login_url = "/login/"
     model = Status
     success_url = reverse_lazy('statuses_list')
-    context_object_name = 'status'
     success_message = _('Status successfully deleted')
 
     def handle_no_permission(self):

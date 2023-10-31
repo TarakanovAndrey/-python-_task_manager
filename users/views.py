@@ -130,6 +130,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
+    success_message = _('The user has been successfully deleted')
 
     def handle_no_permission(self):
         messages.error(self.request, _("You are not logged in! Please log in."))
@@ -141,11 +142,8 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
             return redirect('users_list')
 
         try:
-            self.object.delete()
+            return super(UserDeleteView, self).form_valid(form)
         except ProtectedError:
             messages.error(self.request, _("It is not possible to"
                                            " delete a user because it is being usedss"))
             return redirect('users_list')
-
-        messages.success(self.request, _('The user has been successfully deleted'))
-        return redirect(self.get_success_url())
