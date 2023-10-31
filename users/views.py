@@ -93,7 +93,7 @@ class LoginUserView(LoginView):
                 )
 
 
-class LogoutUserView(LogoutView):
+class LogoutUserView(SuccessMessageMixin, LogoutView):
 
     def post(self, request, *args, **kwargs):
         logout(request)
@@ -130,39 +130,10 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
-    # success_message = _('The user has been successfully deleted')
 
     def handle_no_permission(self):
         messages.error(self.request, _("You are not logged in! Please log in."))
         return super(UserDeleteView, self).handle_no_permission()
-#
-    # def form_valid(self, form):
-    #     if self.object != self.request.user:
-    #         messages.error(self.request, _("You don't have the rights to change another user."))
-    #         return redirect('users_list')
-    #
-    #     try:
-    #         return super(UserDeleteView, self).form_valid(form)
-    #     except ProtectedError:
-    #         messages.error(self.request, _("It is not possible to "
-    #                                        "delete a user because it is being usedss"))
-    #         return redirect('users_list')
-#
-#     def post(self, request, *args, **kwargs):
-#         if kwargs['pk'] != self.request.user.id:
-#             messages.error(self.request, _("You don't have the rights to change another user."))
-#             return redirect('users_list')
-#
-#         try:
-#             user = request.user
-#             user.delete()
-#             messages.success(self.request, _('The user has been successfully deleted'))
-#             return redirect('users_list')
-#         except ProtectedError:
-#             messages.error(self.request, _("It is not possible to "
-#                                            "delete a user because it is being usedss"))
-#             return redirect('users_list')
-#
 
     def form_valid(self, form):
         if self.object != self.request.user:
@@ -179,16 +150,3 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         messages.success(self.request, _('The user has been successfully deleted'))
         return redirect(self.get_success_url())
 
-
-# class UserDeleteView(SuccessMessageMixin, DeleteView):
-#     model = User
-#     template_name = 'users/user_delete.html'
-#
-#     permission_message = _("You can't delete other users")
-#     no_login_message = _('You are not logged in! Please log in')
-#     permission_url = reverse_lazy("users_list")
-#     protected_message = _("User can't be deleted because he have assigned tasks")  # noqa E501
-#     protected_url = reverse_lazy('users')
-#
-#     success_url = reverse_lazy('users_list')
-#     success_message = _('User deleted successfully')
