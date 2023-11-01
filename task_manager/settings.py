@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'task_manager',
+    'base.apps.BaseConfig',
     'users.apps.UsersConfig',
     'statuses.apps.StatusesConfig',
     'labels.apps.LabelsConfig',
@@ -87,14 +88,14 @@ ROLLBAR = {
 }
 
 
-ROOT_URLCONF = 'task_manager.urls'
+ROOT_URLCONF = 'base.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(
             BASE_DIR,
-            'task_manager/templates',
+            'base/templates',
             'users/templates',
             'statuses/templates',
             'labels/templates',
