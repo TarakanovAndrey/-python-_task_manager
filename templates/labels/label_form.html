@@ -1,13 +1,12 @@
-{% extends 'task_manager/base.html' %}
+{% extends 'base/base.html' %}
 {% load i18n %}
 
 {% load django_bootstrap5 %}
 {% bootstrap_javascript %}
 
-
 {% block content %}
 <div class="container wrapper flex-grow-1">
-<h1 class="my-4">{% translate 'Create label' %}</h1>
+<h1 class="my-4">{% translate 'Label change' %}</h1>
 
 <form method="post">
     {% csrf_token %}
@@ -17,7 +16,7 @@
             {{ field }}
         {% endfor %}
     </div>
-    <input class="btn btn-primary" type="submit" value="{% translate 'Create' %}">
+    <input class="btn btn-primary" type="submit" value="{% translate 'Change' %}">
 </form>
 </div>
-{% endblock %}
+{% endblock content %}

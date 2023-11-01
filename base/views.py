@@ -10,7 +10,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 def get_home_page(request):
     return render(
         request,
-        template_name='task_manager/index.html',
+        template_name='base/index.html',
     )
 
 
